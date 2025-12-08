@@ -1,3 +1,6 @@
+:: Sebastian Januchowski
+:: polsoft.its@fastservice.com
+:: https://github.com/seb07uk
 @echo off
 chcp 65001 >nul
 setlocal
