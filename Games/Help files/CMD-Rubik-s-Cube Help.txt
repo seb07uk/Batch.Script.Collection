@@ -1,0 +1,105 @@
+Rubik Cube CLI
+polsoft.ITS London – psCLI Tool
+by GiAnMMV
+============================================================
+
+DESCRIPTION:
+------------
+Rubik Cube CLI is an interactive console-based Rubik’s Cube simulator.
+The user can perform moves, rotate the cube, switch projection modes,
+scramble the cube, and attempt to solve it in the fewest moves possible.
+The program generates a random scramble and tracks the number of moves.
+
+The goal is to make each face of the cube a single uniform color.
+
+FEATURES:
+--------
+• Full 3×3 Rubik’s Cube simulation
+• Automatic scramble (100 random moves)
+• Two display modes: isometric / cabinet
+• Layer moves (U, D, L, R, F, B + inverse variants)
+• Whole-cube rotations (X, Y, Z + inverse variants)
+• Move counter
+• Automatic solved-state detection
+• Commands: proj (switch projection), exit (quit)
+
+CONTROLS:
+---------
+Layer moves:
+  U   = upper layer clockwise
+  U'  = upper layer counter‑clockwise
+  D   = bottom layer clockwise
+  D'  = bottom layer counter‑clockwise
+  L   = left layer upward
+  L'  = left layer downward
+  R   = right layer upward
+  R'  = right layer downward
+  F   = front layer clockwise
+  F'  = front layer counter‑clockwise
+  B   = back layer clockwise
+  B'  = back layer counter‑clockwise
+
+Cube rotations:
+  X   = rotate cube around X axis
+  X'  = rotate cube around X axis (reverse)
+  Y   = rotate cube around Y axis
+  Y'  = rotate cube around Y axis (reverse)
+  Z   = rotate cube around Z axis
+  Z'  = rotate cube around Z axis (reverse)
+
+Additional commands:
+  proj  = toggle projection (isometric/cabinet)
+  exit  = quit the game
+
+OPERATION DETAILS:
+------------------
+• The cube is represented as a 54‑element array (6 faces × 9 tiles).
+• Each move is a permutation of tile indices.
+• Predefined rotation maps handle all X/Y/Z and layer moves.
+• Colors are displayed using ANSI escape codes.
+• After each move, the program checks if all faces are uniform.
+
+REQUIREMENTS:
+-------------
+• Windows 7/10/11
+• ANSI‑compatible console
+• Standard CMD environment
+• Minimum 32 console lines (set automatically)
+
+USAGE:
+------
+Run:
+
+  rubik.cmd
+
+On startup:
+  • The program displays an ASCII logo
+  • Performs a 100‑move scramble
+  • Enters interactive mode
+
+Enter commands such as:
+
+  d
+  f
+  x
+  z
+  u'
+  proj
+  exit
+
+NOTES:
+------
+• There is no undo function.
+• Each scramble is unique.
+• Isometric projection is decorative; cabinet projection is clearer.
+
+END:
+----
+When solved, the program displays:
+
+  You won!
+  You solved the cube in <X> moves.
+
+============================================================
+           Thank you for using psCLI Games!
+============================================================

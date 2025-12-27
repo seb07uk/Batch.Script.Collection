@@ -1,0 +1,64 @@
+DirectX End‑User Runtime Web Installer
+polsoft.ITS London – psCLI Tool
+2024(c) Microsoft Corporation
+======================================
+
+DESCRIPTION:
+------------
+The DirectX End‑User Runtime Web Installer is a Microsoft tool used to
+download and install legacy DirectX components required by older games
+and multimedia applications. It supplements Windows with optional
+runtime libraries such as D3DX9, D3DX10, D3DX11, XAudio 2.7, XInput 1.3,
+and other components originally included in the DirectX SDK.
+
+This installer does NOT upgrade DirectX 11/12 and does not change the
+DirectX version shown in dxdiag.
+
+FEATURES:
+--------
+• Downloads only the DirectX components missing on the system  
+• Installs legacy libraries required by older games  
+• Very small installer size (~288 KB)  
+• Fully automatic installation process  
+• Compatible with Windows XP → Windows 11  
+
+OPERATION DETAILS:
+------------------
+• Downloads required components directly from Microsoft servers  
+• Installs optional DirectX SDK libraries (D3DX, XAudio, XInput, XACT)  
+• Does not modify system‑level DirectX 11/12  
+• Ensures compatibility with older games and multimedia software  
+
+REQUIREMENTS:
+-------------
+• Windows XP SP2 or newer  
+• Windows Vista / 7 / 8 / 8.1 / 10 / 11  
+• Internet connection (web installer)  
+• Administrator privileges  
+
+USAGE:
+------
+Run the installer:
+
+  dxwebsetup.exe
+
+Follow the on‑screen instructions:
+  1. Accept the license agreement  
+  2. Allow the installer to download required components  
+  3. Complete installation  
+  4. Restart the system if recommended  
+
+NOTES:
+------
+• Modern games use DirectX 11/12, but many older titles still require
+  the legacy libraries included in this package.  
+• The installer is safe and provided directly by Microsoft.  
+• The tool does not overwrite or downgrade existing DirectX components.  
+
+EXIT:
+-----
+The installer closes automatically after installation.
+
+============================================================
+           Thank you for using psCLI Runtime Tools!
+============================================================

@@ -1,0 +1,75 @@
+CLI Calculator Pro v1.5 Help
+============================================================
+Author: Sebastian Januchowski
+Contact: polsoft.its@fastservice.com
+Repository: https://github.com/seb07uk
+Group: Office
+Alias: calc
+Category: tools
+============================================================
+
+DESCRIPTION:
+------------
+Calculator Pro v1.5 is an advanced command‑line calculator for Windows.
+It uses PowerShell for precise floating‑point calculations and supports
+basic arithmetic, trigonometric functions, exponentiation, and square roots.
+
+FEATURES:
+---------
+[1] Addition        – add two numbers
+[2] Subtraction     – subtract one number from another
+[3] Multiplication  – multiply two numbers
+[4] Division        – divide numbers with zero‑division protection
+[5] Power           – raise a number to a given exponent
+[6] Square root     – compute √x with negative‑number validation
+[7] Sine            – sine of an angle (degrees)
+[8] Cosine          – cosine of an angle (degrees)
+[9] Tangent         – tangent of an angle (degrees)
+[e] Exit            – close the program
+
+USAGE:
+------
+After launching the program, the main menu appears.
+To select an operation, type its number and press ENTER.
+
+Each function will ask for the required input values.
+The program automatically:
+ - converts commas to dots in numeric input,
+ - validates numbers,
+ - handles errors (invalid input, division by zero, negative square root).
+
+EXAMPLES:
+---------
+1) Addition:
+   Enter first number: 12.5
+   Enter second number: 7.3
+   Result = 19.8
+
+2) Division:
+   Enter numerator: 10
+   Enter denominator: 0
+   Error: division by zero!
+
+3) Sine:
+   Enter angle in degrees: 90
+   sin(90) = 1
+
+REQUIREMENTS:
+-------------
+ - Windows 7/10/11
+ - PowerShell (built into Windows)
+ - ANSI‑compatible console (Windows 10+ recommended)
+
+NOTES:
+------
+ - The program uses ANSI colors for improved readability.
+ - Trigonometric functions expect angles in degrees.
+ - Invalid input triggers an error message and returns to the main menu.
+
+EXIT:
+-----
+To exit the program, choose option [e].
+
+============================================================
+            Thank you for using Calculator Pro v1.5!
+============================================================

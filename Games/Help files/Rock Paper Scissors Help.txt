@@ -1,0 +1,82 @@
+Rock – Paper – Scissors Help
+polsoft.ITS London – psCLI Tool
+2025(c) Sebastian Januchowski
+============================================================
+
+DESCRIPTION:
+------------
+Rock – Paper – Scissors CLI is a lightweight console game where the
+player competes against the computer. The program supports two languages
+(English and Polish), displays a clean menu, randomly selects the
+computer’s move, and instantly shows the result of each round.
+
+This game is designed as a quick, fun mini‑game within the psCLI
+environment.
+
+FEATURES:
+--------
+• Dual‑language start menu (English / Polish)
+• Random computer move generation
+• Instant win/lose/draw result display
+• ANSI‑colored interface
+• Simple and fast gameplay loop
+• Unlimited rounds until the user chooses to exit
+
+GAME RULES:
+-----------
+• Rock beats Scissors  
+• Scissors beat Paper  
+• Paper beats Rock  
+• Same move = Draw  
+
+CONTROLS:
+---------
+English version:
+  [1] Rock  
+  [2] Paper  
+  [3] Scissors  
+  [4] Exit  
+
+Polish version:
+  [1] Kamień  
+  [2] Papier  
+  [3] Nożyce  
+  [4] Zakończ  
+
+After selecting a move:
+• The computer randomly chooses its move  
+• Both moves are displayed  
+• The game announces: Win / Lose / Draw  
+• Press any key to return to the menu  
+
+REQUIREMENTS:
+-------------
+• Windows 7 / 10 / 11  
+• Standard CMD environment  
+• ANSI support (Windows 10+)  
+
+USAGE:
+------
+Run:
+
+  rps.cmd
+
+Then:
+  • Choose language  
+  • Choose your move  
+  • Read the result  
+  • Continue playing or exit  
+
+NOTES:
+------
+• The game does not store scores or statistics.  
+• Computer moves are generated using the built‑in %random% function.  
+• The program loops until the user selects Exit.  
+
+END:
+----
+When the user chooses Exit, the program closes immediately.
+
+============================================================
+           Thank you for playing with psCLI Games!
+============================================================
