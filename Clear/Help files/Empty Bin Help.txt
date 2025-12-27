@@ -1,0 +1,94 @@
+Empty System Bin v1.0 Help
+polsoft.ITS London – CLI Tool
+2025 (c) Sebastian Januchowski
+============================================================
+
+DESCRIPTION:
+------------
+Empty System Bin v1.0 is a command‑line utility that safely clears the
+Windows Recycle Bin and automatically generates detailed logs of all
+deleted items. It uses PowerShell and the Windows Shell API
+(SHEmptyRecycleBin) for reliable system‑level cleanup.
+
+The tool performs two main actions:
+  1. Creates a log containing the list of all items currently in the Recycle Bin.
+  2. Empties the Recycle Bin using the Windows Shell API.
+
+All logs are stored in:
+  %USERPROFILE%\.polsoft\Log
+
+FEATURES:
+---------
+• Automatic log numbering (EmptyBin_psCLI_001.log, 002.log, etc.)
+• Latest log always saved as:
+      EmptyBin_psCLI.log
+• Logs include:
+      - File name
+      - Original location
+      - File size
+      - Deletion date
+• Recycle Bin emptied using SHEmptyRecycleBin API
+• UTF‑8 encoded logs for compatibility
+
+LOGGING DETAILS:
+----------------
+Before emptying the Recycle Bin, the script:
+  - Reads all items from Recycle Bin (Shell Namespace 10)
+  - Extracts metadata using GetDetailsOf()
+  - Generates a timestamped header:
+        # EmptyBin Log YYYY‑MM‑DD HH:MM:SS
+  - Saves the log to:
+        %USERPROFILE%\.polsoft\Log\EmptyBin_psCLI_XXX.log
+  - Updates the latest log:
+        EmptyBin_psCLI.log
+
+RECYCLE BIN CLEANING:
+---------------------
+The cleanup is performed using the Windows API:
+
+  SHEmptyRecycleBin(hwnd, pszRootPath, dwFlags)
+
+This ensures:
+  - Full system‑level emptying
+  - No UI prompts
+  - No confirmation dialogs
+
+OUTPUT:
+-------
+After successful cleanup, the script displays:
+
+  [OK] Recycle Bin emptied.  Log: <logfile>
+
+ERROR HANDLING:
+---------------
+• If the log directory does not exist, it is created automatically.
+• If the Recycle Bin is already empty, the log will contain only the header.
+• Log numbering is automatically incremented even if older logs were deleted.
+
+REQUIREMENTS:
+-------------
+• Windows 7 / 10 / 11
+• PowerShell installed (default on Windows)
+• Standard CMD environment
+
+USAGE:
+------
+Run the script directly:
+
+  EmptyBin.cmd
+
+The tool requires no arguments and performs all actions automatically.
+
+NOTES:
+------
+• The script does NOT delete any files outside the Recycle Bin.
+• Logs can be reviewed manually at any time.
+• UTF‑8 encoding ensures compatibility with editors and Git.
+
+EXIT:
+-----
+The script ends with exit code 0 on success.
+
+============================================================
+            Thank you for using polsoft psCLI Tools!
+============================================================
