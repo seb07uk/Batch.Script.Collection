@@ -2,7 +2,14 @@
 title CMD Cli RegEditer v1.0 - ADMIN MODE
 color 0A
 chcp 852 >nul
+:: --- INITIALIZE LOG FILE ---
+set "log=%userprofile%\.polsoft\psCLI\Log\RegEditer_%date%.log"
 
+if not exist "%userprofile%\.polsoft\psCLI\Log" (
+    mkdir "%userprofile%\.polsoft\psCLI\Log"
+)
+
+echo [%date% %time%] Program started. >> "%log%"
 :: --- SEKCJA WYMUSZANIA ADMINISTRATORA ---
 :check_permissions
 net session >nul 2>&1

@@ -1,0 +1,150 @@
+CLI Calculator Pro v1.5 Help [en-pl]
+============================================================
+Author: Sebastian Januchowski
+Contact: polsoft.its@fastservice.com
+Repository: https://github.com/seb07uk
+Group: Office
+Alias: calc
+Category: tools
+============================================================
+
+DESCRIPTION:
+------------
+Calculator Pro v1.5 is an advanced command‑line calculator for Windows.
+It uses PowerShell for precise floating‑point calculations and supports
+basic arithmetic, trigonometric functions, exponentiation, and square roots.
+
+FEATURES:
+---------
+[1] Addition        – add two numbers
+[2] Subtraction     – subtract one number from another
+[3] Multiplication  – multiply two numbers
+[4] Division        – divide numbers with zero‑division protection
+[5] Power           – raise a number to a given exponent
+[6] Square root     – compute √x with negative‑number validation
+[7] Sine            – sine of an angle (degrees)
+[8] Cosine          – cosine of an angle (degrees)
+[9] Tangent         – tangent of an angle (degrees)
+[e] Exit            – close the program
+
+USAGE:
+------
+After launching the program, the main menu appears.
+To select an operation, type its number and press ENTER.
+
+Each function will ask for the required input values.
+The program automatically:
+ - converts commas to dots in numeric input,
+ - validates numbers,
+ - handles errors (invalid input, division by zero, negative square root).
+
+EXAMPLES:
+---------
+1) Addition:
+   Enter first number: 12.5
+   Enter second number: 7.3
+   Result = 19.8
+
+2) Division:
+   Enter numerator: 10
+   Enter denominator: 0
+   Error: division by zero!
+
+3) Sine:
+   Enter angle in degrees: 90
+   sin(90) = 1
+
+REQUIREMENTS:
+-------------
+ - Windows 7/10/11
+ - PowerShell (built into Windows)
+ - ANSI‑compatible console (Windows 10+ recommended)
+
+NOTES:
+------
+ - The program uses ANSI colors for improved readability.
+ - Trigonometric functions expect angles in degrees.
+ - Invalid input triggers an error message and returns to the main menu.
+
+EXIT:
+-----
+To exit the program, choose option [e].
+
+===PL========================================================
+CLI Kalkulator Pro v1.5 — POMOC
+============================================================
+Autor:      Sebastian Januchowski
+Kontakt:    polsoft.its@fastservice.com
+Repozytorium: https://github.com/seb07uk
+Grupa:      Office
+Alias:      calc
+Kategoria:  tools
+============================================================
+
+OPIS:
+-----
+Calculator Pro v1.5 to zaawansowany kalkulator działający w trybie
+wiersza poleceń dla systemu Windows. Wykorzystuje PowerShell do
+dokładnych obliczeń zmiennoprzecinkowych i obsługuje podstawową
+arytmetykę, funkcje trygonometryczne, potęgowanie oraz pierwiastki.
+
+FUNKCJE:
+--------
+[1] Dodawanie        – dodaje dwie liczby
+[2] Odejmowanie      – odejmuje jedną liczbę od drugiej
+[3] Mnożenie         – mnoży dwie liczby
+[4] Dzielenie        – dzieli liczby z ochroną przed dzieleniem przez zero
+[5] Potęgowanie      – podnosi liczbę do wybranego wykładnika
+[6] Pierwiastek      – oblicza √x z walidacją liczb ujemnych
+[7] Sinus            – sinus kąta (w stopniach)
+[8] Cosinus          – cosinus kąta (w stopniach)
+[9] Tangens          – tangens kąta (w stopniach)
+[e] Wyjście          – zamyka program
+
+UŻYCIE:
+-------
+Po uruchomieniu programu wyświetlane jest menu główne.
+Aby wybrać operację, wpisz jej numer i naciśnij ENTER.
+
+Każda funkcja poprosi o wymagane wartości wejściowe.
+Program automatycznie:
+ - zamienia przecinki na kropki w danych liczbowych,
+ - sprawdza poprawność liczb,
+ - obsługuje błędy (nieprawidłowe dane, dzielenie przez zero,
+   pierwiastek z liczby ujemnej).
+
+PRZYKŁADY:
+----------
+1) Dodawanie:
+   Podaj pierwszą liczbę: 12.5
+   Podaj drugą liczbę: 7.3
+   Wynik = 19.8
+
+2) Dzielenie:
+   Podaj licznik: 10
+   Podaj mianownik: 0
+   Błąd: dzielenie przez zero!
+
+3) Sinus:
+   Podaj kąt w stopniach: 90
+   sin(90) = 1
+
+WYMAGANIA:
+----------
+ - Windows 7/10/11
+ - PowerShell (wbudowany w Windows)
+ - Konsola zgodna z ANSI (zalecany Windows 10+)
+
+UWAGI:
+------
+ - Program używa kolorów ANSI dla lepszej czytelności.
+ - Funkcje trygonometryczne oczekują kątów w stopniach.
+ - Nieprawidłowe dane powodują wyświetlenie błędu i powrót do menu.
+
+WYJŚCIE:
+--------
+Aby zamknąć program, wybierz opcję [e].
+
+============================================================
+        Dziękujemy za korzystanie z Calculator Pro v1.5!
+============================================================
