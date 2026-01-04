@@ -1,0 +1,220 @@
+FILE LIST GENERATOR — HELP
+============================================================
+
+PROGRAM DESCRIPTION
+------------------------------------------------------------
+This tool generates a list of files and folders from a 
+selected directory. The program allows you to:
+ - choose the source directory,
+ - set the output file location,
+ - filter results,
+ - preview the generated list,
+ - log all operations.
+
+The program works in interactive mode — options are selected 
+by pressing keys (no Enter required).
+
+------------------------------------------------------------
+MENU STRUCTURE
+------------------------------------------------------------
+
+1. DIRECTORY SELECTION MENU
+   ----------------------------------------
+   [Z] – Change source directory
+   [D] – Continue to main menu
+   [L] – Output file location
+   [A] – About (author information)
+
+2. OUTPUT LOCATION MENU
+   ----------------------------------------
+   [D] – Desktop
+   [S] – Same as source directory
+   [C] – Custom path (full path with filename)
+
+3. MAIN MENU
+   ----------------------------------------
+   [1] – File and folder names
+          → dir /b
+   [2] – Files only (no folders)
+          → dir /b /a:-d
+   [3] – Hidden/system files
+          → dir /b /a:-d-h-s
+   [4] – Filter by extension
+          → dir /b /a:-d *.ext
+   [0] – Exit program
+
+------------------------------------------------------------
+OPTION DETAILS
+------------------------------------------------------------
+
+[1] File and folder names  
+    Saves a complete list of items from the source directory.
+
+[2] Files only  
+    Skips folders — saves only files.
+
+[3] Hidden/system files  
+    Displays only files marked as hidden or system.
+
+[4] Filter by extension  
+    Allows entering an extension, e.g.:
+        txt
+        jpg
+        ps1
+    Result: all files matching *.ext
+
+------------------------------------------------------------
+OUTPUT LOCATION
+------------------------------------------------------------
+Default:
+    %userprofile%\Desktop\list.txt
+
+You can change it to:
+ - the source directory,
+ - any custom path.
+
+------------------------------------------------------------
+LOGGING
+------------------------------------------------------------
+All operations are logged in:
+    %userprofile%\.polsoft\psCLI\Log\List.log
+
+The log contains:
+ - date and time of program start,
+ - directory changes,
+ - output location changes,
+ - selected list generation options,
+ - program exit.
+
+------------------------------------------------------------
+LIST PREVIEW FUNCTION
+------------------------------------------------------------
+After generating the list, the program displays its contents:
+    type "%OUTPUT%"
+
+------------------------------------------------------------
+AUTHOR INFORMATION
+------------------------------------------------------------
+Author:  Sebastian Januchowski  
+Email:   polsoft.its@fastservice.com  
+GitHub:  https://github.com/seb07uk
+
+------------------------------------------------------------
+PROGRAM EXIT
+------------------------------------------------------------
+[0] – Closes the application and writes an entry to the log.
+
+============================================================
+                 END OF HELP FILE
+============================================================
+
+=POLISH=====================================================
+                 GENERATOR LISTY PLIKÓW — HELP
+============================================================
+
+OPIS PROGRAMU
+------------------------------------------------------------
+Narzędzie służy do generowania listy plików i folderów z 
+wybranego katalogu. Program umożliwia:
+ - wybór katalogu źródłowego,
+ - ustawienie lokalizacji zapisu,
+ - filtrowanie wyników,
+ - podgląd wygenerowanej listy,
+ - logowanie wszystkich operacji.
+
+Program działa w trybie interaktywnym — wybór opcji odbywa 
+się za pomocą klawiszy (bez wciskania Enter).
+
+------------------------------------------------------------
+STRUKTURA MENU
+------------------------------------------------------------
+
+1. MENU WYBORU KATALOGU
+   ----------------------------------------
+   [Z] – Zmień katalog źródłowy
+   [D] – Przejdź do menu głównego
+   [L] – Ustaw lokalizację zapisu
+   [A] – Informacje o autorze
+
+2. MENU LOKALIZACJI ZAPISU
+   ----------------------------------------
+   [D] – Zapis na Pulpit
+   [S] – Zapis w katalogu źródłowym
+   [C] – Własna ścieżka (podajesz pełną ścieżkę)
+
+3. MENU GŁÓWNE
+   ----------------------------------------
+   [1] – Nazwy plików i folderów
+          → dir /b
+   [2] – Tylko pliki (bez folderów)
+          → dir /b /a:-d
+   [3] – Pliki ukryte/systemowe
+          → dir /b /a:-d-h-s
+   [4] – Filtr po rozszerzeniu
+          → dir /b /a:-d *.ext
+   [0] – Wyjście z programu
+
+------------------------------------------------------------
+OPIS OPCJI
+------------------------------------------------------------
+
+[1] Nazwy plików i folderów
+    Zapisuje pełną listę elementów z katalogu źródłowego.
+
+[2] Tylko pliki
+    Pomija foldery — zapisuje wyłącznie pliki.
+
+[3] Pliki ukryte/systemowe
+    Wyświetla tylko pliki oznaczone jako ukryte lub systemowe.
+
+[4] Filtr po rozszerzeniu
+    Umożliwia podanie rozszerzenia, np.:
+        txt
+        jpg
+        ps1
+    Wynik: wszystkie pliki *.ext
+
+------------------------------------------------------------
+LOKALIZACJA ZAPISU
+------------------------------------------------------------
+Domyślnie:
+    %userprofile%\Desktop\list.txt
+
+Możesz zmienić na:
+ - katalog źródłowy,
+ - dowolną własną ścieżkę.
+
+------------------------------------------------------------
+LOGOWANIE
+------------------------------------------------------------
+Wszystkie operacje są zapisywane w:
+    %userprofile%\.polsoft\psCLI\Log\List.log
+
+Log zawiera:
+ - datę i godzinę uruchomienia,
+ - zmianę katalogu,
+ - zmianę lokalizacji zapisu,
+ - wybraną opcję generowania listy,
+ - zamknięcie programu.
+
+------------------------------------------------------------
+FUNKCJA PODGLĄDU LISTY
+------------------------------------------------------------
+Po wygenerowaniu listy program wyświetla jej zawartość:
+    type "%OUTPUT%"
+
+------------------------------------------------------------
+INFORMACJE O AUTORZE
+------------------------------------------------------------
+Autor:  Sebastian Januchowski
+Email:  polsoft.its@fastservice.com
+GitHub: https://github.com/seb07uk
+
+------------------------------------------------------------
+ZAKOŃCZENIE PROGRAMU
+------------------------------------------------------------
+[0] – Zamyka aplikację i dopisuje wpis do logu.
+
+============================================================
+                 KONIEC PLIKU POMOCY
+============================================================
