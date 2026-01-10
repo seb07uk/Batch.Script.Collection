@@ -1,0 +1,92 @@
+Tic Tac Toe – Batch Game
+polsoft.ITS London – psCLI Tool
+2025(c) Sebastian Januchowski
+============================================================
+
+DESCRIPTION:
+------------
+Tic Tac Toe – Batch Game is a console-based implementation of the
+classic X/O board game. The program supports two languages (EN/PL),
+renders the board dynamically, validates moves, detects wins or draws,
+and allows players to restart the game without closing the program.
+
+The game is designed for two local players (X and O).
+
+FEATURES:
+--------
+• Dual-language start menu (English / Polish)
+• Dynamic 3×3 board display
+• Move validation (occupied cells, range 1–9)
+• Automatic win detection
+• Draw detection
+• Option to play again after the match
+• ANSI-colored messages for clarity
+
+CONTROLS:
+---------
+Players enter a number from 1 to 9 to place their symbol.
+
+Board layout:
+
+   1 | 2 | 3
+  ---+---+---
+   4 | 5 | 6
+  ---+---+---
+   7 | 8 | 9
+
+Rules:
+• X always starts
+• Players alternate turns
+• A move is rejected if the cell is already taken or invalid
+
+WIN CONDITIONS:
+---------------
+The program checks all possible winning lines:
+
+• 3 rows  
+• 3 columns  
+• 2 diagonals  
+
+If three matching symbols (X or O) align, the game ends with a winner.
+
+DRAW:
+-----
+If all cells are filled and no winner is found, the game ends in a draw.
+
+REQUIREMENTS:
+-------------
+• Windows 7 / 10 / 11  
+• Standard CMD environment  
+• ANSI support (Windows 10+)  
+
+USAGE:
+------
+Run:
+
+  tic_tac_toe.cmd
+
+On startup:
+  • Choose language (1 – English, 2 – Polski)
+  • The game begins immediately
+  • Enter cell numbers to make moves
+
+After the match:
+  • The program asks if you want to play again
+  • Valid responses:
+      EN → Y / N
+      PL → T / N
+
+NOTES:
+------
+• The game does not include AI (no single-player mode)
+• The board resets automatically when starting a new match
+• Invalid inputs are rejected with a message
+
+END:
+----
+After declining a rematch, the program displays a farewell message
+based on the selected language.
+
+============================================================
+           Thank you for playing with psCLI Games!
+============================================================

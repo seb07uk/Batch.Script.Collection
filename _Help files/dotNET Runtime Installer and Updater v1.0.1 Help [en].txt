@@ -1,0 +1,116 @@
+dotNET Runtime Installer and Updater Help [EN]
+Version 1.0.1 — September 2025
+
+Author: Sebastian Januchowski
+Organization: polsoft.ITS London
+E‑mail: polsoft.its@fastservice.com
+====================================================================
+- OVERVIEW
+====================================================================
+This script is an interactive CMD‑based installer and updater 
+for Microsoft .NET components.
+
+It supports installation of multiple versions of:
+
+- .NET Runtime
+- .NET SDK
+- .NET Desktop Runtime
+- ASP.NET Core Runtime
+- Preview channels
+- External installation scripts (PowerShell / Bash)
+
+The tool uses winget, ANSI color output, 
+and official Microsoft download sources.
+====================================================================
+2. ADMINISTRATOR PRIVILEGES
+At startup, the script checks whether it is running 
+with Administrator rights:
+
+net session >nul 2>&1
+
+If not, it automatically relaunches itself with elevated privileges:
+Start-Process -FilePath "%0" -Verb RunAs
+====================================================================
+3. ENVIRONMENT SETUP
+The script sets UTF‑8 encoding:
+
+chcp 65001
+
+This ensures proper rendering of ANSI colors and Unicode characters.
+====================================================================
+4. MENU STRUCTURE
+
+- .NET 3.1 – 6.0
+Runtime
+SDK
+Desktop Runtime
+ASP.NET Core Runtime
+
+- .NET 7.0 – 9.0
+Same categories as above
+- .NET 10.0 (Preview)
+Runtime Preview
+SDK Preview
+Desktop Runtime Preview
+ASP.NET Core Runtime Preview
+
+- Third‑Party / External Tools
+PowerShell install script
+Bash install script
+Microsoft .NET website
+
+- Utility
+About window
+Exit
+====================================================================
+5. INSTALLATION LOGIC
+Each menu option triggers a corresponding winget installation, 
+for example:
+
+winget install Microsoft.DotNet.Runtime.7
+winget install Microsoft.DotNet.SDK.8
+winget install Microsoft.DotNet.DesktopRuntime.9
+winget install Microsoft.DotNet.AspNetCore.6
+
+Preview channels use:
+Microsoft.DotNet.Runtime.Preview
+Microsoft.DotNet.SDK.Preview
+====================================================================
+6. EXTERNAL RESOURCES
+The script opens official Microsoft resources:
+
+https://dotnet.microsoft.com/en-us/
+https://builds.dotnet.microsoft.com/dotnet/scripts/v1/dotnet-install.ps1
+https://builds.dotnet.microsoft.com/dotnet/scripts/v1/dotnet-install.sh
+====================================================================
+7. ABOUT WINDOW
+Option (b) displays a Windows Forms MessageBox with program information.
+====================================================================
+8. SCREEN HANDLING
+Each installation step:
+
+- Clears the screen
+- Runs the installation
+- Waits 3 seconds
+- Returns to the main menu
+====================================================================
+9. EXIT
+Option (x) exits the script.
+====================================================================
+10. REQUIREMENTS
+
+- Windows 10/11
+- winget installed
+- Administrator privileges
+- Internet connection
+====================================================================
+11. SUPPORT
+For updates or support, contact:
+polsoft.its@fastservice.com
+
+If you'd like, I can also prepare:
+- a shorter version,
+- a more technical version,
+- a GitHub‑ready README.md,
+- or a version formatted for display inside the script itself.
+====================================================================

@@ -1,0 +1,61 @@
+📘 Clear Windows Defender History module Help [EN]
+
+Overview
+This module creates a scheduled task that clears Windows Defender Protection History, including:
+• 	Threat detection history
+• 	Controlled Folder Access (CFA) block history
+• 	The  database used by Defender to store event logs
+The module requires administrator privileges. If it is not run as administrator, it automatically restarts itself with elevated permissions.
+After creating and running the scheduled task, the module can optionally delete the task and prompt the user to restart the system.
+
+---
+
+🛠️ module Features
+1. ClearAV
+Removes the folder:
+
+This folder contains the Protection History entries for detected threats.
+
+2. ClearCFA
+Deletes:
+
+These files store CFA block events and other Defender telemetry.
+
+3. RemoveTask
+Controls whether the scheduled task deletes itself after running.
+• 	 → Task deletes itself after clearing history
+• 	 → Task remains and clears history at every system startup
+
+⚠️ Warning:
+Do not set  unless you truly never want to see Defender Protection History again.
+
+---
+
+🔧 How the module Works
+1. 	Checks for administrator privileges
+If not elevated, it relaunches itself with .
+2. 	Builds a scheduled task
+• 	Name: 
+• 	Runs at system startup
+• 	Runs under the SYSTEM account
+• 	Executes a command that clears Defender history
+3. 	Registers the task using PowerShell’s scheduled task cmdlets.
+4. 	Prompts the user for a restart
+Clearing Defender history requires a reboot to take effect.
+
+---
+
+📄 Configuration Parameters
+
+▶️ Usage Instructions
+1. 	Run the module (it will elevate itself if needed).
+2. 	The module creates and runs the scheduled task.
+3. 	You will be asked whether you want to restart now.
+4. 	After reboot, Defender Protection History will be cleared.
+
+---
+
+⚠️ Important Notes
+• 	Clearing Defender history removes forensic information about past threats.
+• 	Leaving  will permanently disable Defender’s ability to store history.
+• 	The module modifies the Windows Task Scheduler — ensure you have proper permissions.

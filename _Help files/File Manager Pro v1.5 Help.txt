@@ -1,0 +1,108 @@
+CMD CLI File Manager Pro v1.5 – HELP [EN]
+==============================================================
+
+CMD CLI FILE MANAGER PRO is an interactive file manager
+running inside the Windows Command Prompt (CMD). It allows
+fast navigation, creation, deletion, copying, moving, and
+analysis of directory contents.
+
+--------------------------------------------------------------
+                     MAIN MENU – OPTIONS
+--------------------------------------------------------------
+
+ [1] REFRESH
+     Refreshes the current directory view.
+
+ [2] ENTER (CD)
+     Enters a specified folder.
+     Accepts a folder name or full path.
+
+ [3] UP (..)
+     Moves one level up in the directory tree.
+
+ [4] DISK INFO
+     Displays detailed disk and directory statistics:
+       • Used and free disk space
+       • File attributes
+       • Number of files and folders
+       • Total file size (MB)
+
+ [5] NEW FILE
+     Creates a new empty file with the given name.
+
+ [6] NEW FOLDER
+     Creates a new folder with the given name.
+
+ [7] DELETE FILE
+     Deletes the specified file (no confirmation).
+
+ [8] DELETE FOLDER
+     Deletes the specified folder and all its contents.
+
+ [9] RENAME
+     Renames a file or folder.
+
+ [10] COPY (ROBOCOPY)
+     Copies files or folders using ROBOCOPY.
+     Parameters:
+       /e   – include subdirectories
+       /r:1 – retry once
+       /w:1 – wait 1 second between retries
+
+ [11] MOVE (ROBOCOPY)
+     Moves files or folders.
+     Automatically detects whether the source is a file or directory.
+
+ [12] SAVE LIST
+     Saves a directory listing to:
+       C:\Users\<USER>\.polsoft\psCLI\FileList\
+     The file name includes:
+       • folder name
+       • date (YYYY-MM-DD)
+
+ [13] BACKUP (MIRROR)
+     Creates a mirror backup using:
+       robocopy <src> <dst> /mir /mt:8
+
+ [14] SEARCH
+     Recursive search with wildcard support (e.g., *.png).
+     Excludes the FileList directory from results.
+
+ [15] OPEN SAVES
+     Opens the folder containing saved directory listings.
+
+ [16] HELP
+     Displays the built‑in help screen.
+
+ [17] ABOUT
+     Shows author information:
+       • Name
+       • Email
+       • GitHub
+
+ [18] EXIT
+     Closes the program.
+
+--------------------------------------------------------------
+                TECHNICAL INFORMATION & FEATURES
+--------------------------------------------------------------
+
+ • Uses UTF‑8 encoding (chcp 65001).
+ • ANSI color support enabled via ESC sequence generation.
+ • Directory and file listings are formatted inside ASCII frames.
+ • PowerShell is used for disk statistics and attribute listing.
+ • Status messages use color coding:
+       [+] green  – success
+       [!] red    – error
+ • Automatically creates:
+       C:\Users\<USER>\.polsoft\psCLI\FileList
+
+--------------------------------------------------------------
+                     AUTHOR INFORMATION
+--------------------------------------------------------------
+
+   Author: Sebastian Januchowski
+   Email:  polsoft.its@fastservice.com
+   GitHub: https://github.com/seb07uk
+
+==============================================================

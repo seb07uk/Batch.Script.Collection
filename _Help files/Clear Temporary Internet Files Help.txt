@@ -1,0 +1,70 @@
+Clear Temporary Internet Files Help [EN]
+
+Author: Sebastian Januchowski
+Company: polsoft.ITS London
+
+---
+
+🎯 Purpose of the Script
+This script removes Temporary Internet Files stored in the user profile.
+These files are created by Windows components and older browsers, 
+and over time they may:
+- slow down the system
+- cause display or caching issues
+- take up unnecessary disk space
+The script automates the cleanup process safely and quickly.
+
+---
+
+🔐 Requirements
+- Windows operating system
+- Administrator privileges (the script automatically elevates itself)
+
+---
+
+🧩 How the Script Works
+1. Administrator Rights Check
+
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
+
+If the script is not running with admin rights, it restarts itself 
+with elevated permissions.
+
+2. Display Header
+The script prints author information and sets the console title.
+
+3. Notify User About the Cleanup
+echo Deleting temporary internet files...
+ping localhost -n 3 >nul
+
+
+A short pause is added for clarity.
+
+4. Delete Temporary Internet Files
+
+del /f /q "%userprofile%\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*"
+
+This command:
+- /f forces deletion
+- /q suppresses confirmation prompts
+- deletes all files inside the Temporary Internet Files folder for the current user
+
+5. Clear Screen and Display Completion Message
+cls
+echo Temporary Internet files were successfully deleted...
+
+ping localhost -n 3 >nul
+
+The script confirms that the cleanup is complete and pauses briefly before closing.
+
+---
+
+📝 Notes
+- Only files are deleted — folders remain intact.
+- The script affects only the current user’s cache directory.
+- It is safe to run regularly to keep the system clean.
+- Modern browsers may not use this folder, but Windows components still can.

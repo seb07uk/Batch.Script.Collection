@@ -1,0 +1,74 @@
+📘 Parrot HELP [EN]
+
+1. Description
+This Batch script displays a colorful ASCII‑art parrot in the Windows console.
+It uses an advanced color‑printing technique to render the artwork 
+with multiple colors and detailed shading.
+
+2. Script Features
+- Displays a large, detailed ASCII parrot.
+- Prints text in multiple colors using console color codes.
+- Handles special characters safely.
+- Uses a custom color‑printing engine built on top of findstr.
+
+3. Encoding Technique (Detailed)
+
+• findstr /a Color Printing
+The script uses:
+findstr /a:XY "." file
+
+to print text in color XY.
+Each fragment of the ASCII‑art is written to a temporary file 
+and then printed in the chosen color.
+
+• Temporary ' Drive (subst)
+A virtual drive is created:
+subst ': %temp%
+
+
+This drive stores temporary files (' and colorPrint.txt) 
+required by findstr to print colored text.
+
+• :colorPrint Function
+This is the core of the color engine. It:
+- processes the text,
+- escapes special characters (\, /, :),
+- writes the text to a temporary file,
+- prints it in the selected color,
+- removes unwanted characters produced by findstr.
+
+• :c Shortcut Function
+A simplified wrapper for easier ASCII‑art creation:
+call :c 0E "text" /n
+
+
+This makes the artwork easier to build line by line.
+
+• Artwork Construction
+The parrot is built from many call :c commands.
+Each line or fragment can use a different color, 
+allowing multi‑color blending within a single line.
+
+4. Requirements
+- Windows operating system
+- Must be run in cmd.exe
+- Permission to use subst
+- No external files or dependencies required
+
+5. How to Run
+- Save the script as parrot.bat.
+- Run it in a Windows command prompt.
+- Press any key when the script finishes.
+
+6. Cleanup (Optional)
+The script includes a function:
+:cleanupColorPrint
+
+
+which removes temporary files and unmounts the ' drive.
+
+If you want, I can also prepare:
+- a minimal help file,
+- a developer‑focused version,
+- a Markdown README,
+- or a commented version of the entire script.

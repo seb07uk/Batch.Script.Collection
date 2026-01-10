@@ -1,0 +1,64 @@
+📘 Clear Pending Windows Updates HELP [EN]
+
+Author: Sebastian Januchowski
+Company: polsoft.ITS London
+Contact: polsoft.its@fastservice.com
+
+🎯 Purpose of the module
+This module is designed to clean pending or corrupted Windows Update files stored in the SoftwareDistribution\Download folder.
+It is useful when:
+- Windows Update gets stuck
+- Updates fail to download or install
+- The system reports damaged update files
+- You want to reset the Windows Update download cache
+The module safely removes only temporary update files — Windows will re-download them automatically.
+
+---
+
+🔐 Requirements
+- Windows operating system
+- Administrator privileges (the module automatically elevates itself if needed)
+
+---
+
+🧩 How the module Works
+1. Administrator Check
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
+
+
+If the module is not running with admin rights, it restarts itself with elevated privileges.
+
+2. Header Display
+The module sets the console title and prints author information.
+
+3. Stop Windows Update Service
+net stop wuauserv
+
+
+The Windows Update service must be stopped before deleting update files.
+
+4. Navigate to SoftwareDistribution Folder
+cd /d %SystemRoot%\SoftwareDistribution
+
+5. Delete Downloaded Update Files
+del /s /q /f Download
+
+This removes all downloaded update packages that may be causing issues.
+
+6. Restart Windows Update Service
+net start wuauserv
+
+7. Completion Message
+The module informs the user that the cleaning process is finished and pauses briefly:
+ping localhost -n 3 >nul
+
+---
+
+📝 Notes
+- The module does not remove installed updates — only downloaded temporary files.
+- After running it, Windows Update will download fresh copies of required updates.
+- This is a safe and common troubleshooting method for Windows Update problems.

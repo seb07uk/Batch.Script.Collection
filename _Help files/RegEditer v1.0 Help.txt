@@ -1,0 +1,193 @@
+CMD Cli RegEditer v1.0 Help [en-pl]
+polsoft.ITS London – CLI Tool
+2025 (c) Sebastian Januchowski
+===============================================================
+
+DESCRIPTION
+-----------
+CMD Cli RegEditer v1.0 is a command‑line tool designed to perform
+basic operations on the Windows Registry directly from CMD.
+Administrator privileges are required for all operations.
+
+All actions are automatically logged to:
+
+  %userprofile%\.polsoft\psCLI\Log\RegEditer_<date>.log
+
+
+FEATURES
+--------
+The tool provides the following functions:
+
+ [1] ADD NEW ENTRY (REG_SZ)
+     Adds a new REG_SZ value to a specified registry key.
+     You will be prompted for:
+       - Key path
+       - Value name
+       - Data (string)
+
+ [2] DELETE KEY OR VALUE
+     Deletes either:
+       - An entire registry key, or
+       - A specific value inside a key
+     Leaving the value name empty deletes the whole key.
+
+ [3] EXPORT TO .REG FILE
+     Exports a registry key to a .reg file for backup or transfer.
+
+ [4] BROWSE KEY (QUERY)
+     Displays all values, types, and data stored inside a registry key.
+
+ [5] OPEN SYSTEM REGEDIT
+     Launches the graphical Windows Registry Editor (regedit.exe).
+
+ [6] INFORMATION
+     Shows author information and tool version details.
+
+ [H] HELP
+     Displays this help screen.
+
+ [Q] EXIT
+     Closes the program.
+
+
+ADMIN PRIVILEGE HANDLING
+------------------------
+The tool automatically checks for administrator rights.
+If elevation is missing, it relaunches itself using:
+
+  RunAs (PowerShell Start-Process -Verb RunAs)
+
+This ensures all registry operations execute safely and correctly.
+
+
+LOGGING
+-------
+Every operation is logged with timestamp and details, including:
+
+  - Added values
+  - Deleted keys or values
+  - Exported registry branches
+  - Queried keys
+  - Program start and exit events
+  - Elevation attempts
+
+
+NOTES
+-----
+ - Use valid registry paths (e.g., HKLM\Software\MyCompany)
+ - Ensure exported .reg filenames include the .reg extension
+ - Deleting registry keys is irreversible — use with caution
+ - Export keys before modifying them for safety
+
+
+ABOUT
+-----
+ CMD Cli RegEditer v1.0
+ Author : Sebastian Januchowski
+ Email  : polsoft.its@fastservice.com
+ GitHub : https://github.com/seb07uk
+
+ A lightweight text‑mode tool for managing the Windows Registry.
+
+
+===============================================================
+===============================================================
+                     CMD Cli RegEditer v1.0
+                 polsoft.ITS London  – CLI Tool
+                 2025 (c) Sebastian Januchowski
+===============================================================
+
+OPIS
+----
+CMD Cli RegEditer v1.0 to narzędzie wiersza poleceń umożliwiające
+wykonywanie podstawowych operacji na Rejestrze Windows bezpośrednio
+z poziomu CMD. Do wszystkich operacji wymagane są uprawnienia
+administratora.
+
+Wszystkie działania są automatycznie zapisywane w logu:
+
+  %userprofile%\.polsoft\psCLI\Log\RegEditer_<data>.log
+
+
+FUNKCJE
+-------
+Program udostępnia następujące opcje:
+
+ [1] DODAJ NOWĄ WARTOŚĆ (REG_SZ)
+     Dodaje nową wartość typu REG_SZ do wskazanego klucza.
+     Program poprosi o:
+       - Ścieżkę klucza
+       - Nazwę wartości
+       - Dane (tekst)
+
+ [2] USUŃ KLUCZ LUB WARTOŚĆ
+     Umożliwia usunięcie:
+       - Całego klucza rejestru, lub
+       - Konkretniej wartości w kluczu
+     Pozostawienie nazwy wartości pustej usuwa cały klucz.
+
+ [3] EKSPORT DO PLIKU .REG
+     Eksportuje wskazany klucz rejestru do pliku .reg
+     (kopie zapasowe, przenoszenie ustawień).
+
+ [4] PRZEGLĄDAJ KLUCZ (QUERY)
+     Wyświetla wszystkie wartości, typy i dane znajdujące się
+     w podanym kluczu rejestru.
+
+ [5] OTWÓRZ SYSTEMOWY REGEDIT
+     Uruchamia graficzny Edytor Rejestru Windows (regedit.exe).
+
+ [6] INFORMACJE
+     Wyświetla dane autora oraz informacje o wersji narzędzia.
+
+ [H] POMOC
+     Wyświetla ten ekran pomocy.
+
+ [Q] WYJŚCIE
+     Zamyka program.
+
+
+OBSŁUGA UPRAWNIEŃ ADMINISTRATORA
+--------------------------------
+Program automatycznie sprawdza, czy został uruchomiony jako administrator.
+Jeśli nie — ponownie uruchamia się z użyciem:
+
+  RunAs (PowerShell Start-Process -Verb RunAs)
+
+Zapewnia to poprawne działanie wszystkich operacji na rejestrze.
+
+
+LOGOWANIE
+---------
+Każda operacja jest zapisywana w logu wraz z datą i godziną, w tym:
+
+  - Dodawanie wartości
+  - Usuwanie kluczy i wartości
+  - Eksport kluczy
+  - Zapytania (query)
+  - Uruchomienie i zamknięcie programu
+  - Próby podniesienia uprawnień
+
+
+UWAGI
+-----
+ - Używaj poprawnych ścieżek rejestru (np. HKLM\Software\MyCompany)
+ - Upewnij się, że eksportowane pliki mają rozszerzenie .reg
+ - Usuwanie kluczy jest nieodwracalne — zachowaj ostrożność
+ - Zaleca się wykonywanie eksportu przed modyfikacją kluczy
+
+
+INFORMACJE O AUTORZE
+--------------------
+ CMD Cli RegEditer v1.0
+ Autor : Sebastian Januchowski
+ Email : polsoft.its@fastservice.com
+ GitHub: https://github.com/seb07uk
+
+ Lekki, tekstowy edytor rejestru dla administratorów i użytkowników
+ zaawansowanych.
+
+
+===============================================================
+                     KONIEC PLIKU POMOCY
+===============================================================

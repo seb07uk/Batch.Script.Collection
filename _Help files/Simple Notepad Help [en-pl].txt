@@ -1,0 +1,176 @@
+Simple Notepad Cli + AutoSave Help
+============================================================
+Author: Sebastian Januchowski
+Email:  polsoft.its@fastservice.com
+GitHub: https://github.com/seb07uk
+Group:  psCLI Tools
+Module: Notepad CLI
+============================================================
+
+DESCRIPTION:
+------------
+Simple Notepad PRO is a lightweight command‑line notepad tool with
+automatic saving, note browsing, and a built‑in viewer. Notes are stored
+in the user directory:
+
+  %USERPROFILE%\.polsoft\psCLI\Notepad
+
+The program supports:
+ - creating new notes with auto‑save,
+ - browsing notes using keyboard navigation,
+ - opening and reading saved notes,
+ - viewing author information.
+
+FEATURES:
+---------
+[1] New Note (Auto‑Save)
+    - Opens a text input mode.
+    - Type your note freely.
+    - Press CTRL+Z then ENTER to finish.
+    - The note is automatically saved with a timestamped filename.
+
+[2] Browse Notes (W/S/O)
+    - W = move selection up
+    - S = move selection down
+    - O = open selected note
+    - Q = return to main menu
+    - Notes are listed newest‑first.
+
+[3] About Author
+    - Displays author information and project links.
+
+[4] Exit
+    - Closes the program safely.
+    - Removes temporary files if they exist.
+
+AUTO‑SAVE DETAILS:
+------------------
+Each new note is saved automatically with a unique timestamp:
+
+  Note_YYYY-MM-DD_HH-MM-SS.txt
+
+The script ensures:
+ - no overwriting of existing notes,
+ - safe creation of the notes directory,
+ - cleanup of temporary files.
+
+NOTE VIEWER:
+------------
+When opening a note:
+ - The filename is displayed.
+ - The full content is shown.
+ - Press any key to return to the note list.
+
+ERROR HANDLING:
+---------------
+ - If no notes exist, the browser displays a warning.
+ - If a note is missing or deleted, an error is shown.
+ - Empty or cancelled note creation is detected and ignored.
+
+REQUIREMENTS:
+-------------
+ - Windows 7/10/11
+ - ANSI‑compatible terminal (Windows 10+ recommended)
+ - Standard CMD environment
+
+USAGE TIPS:
+-----------
+ - Use CTRL+Z + ENTER to finish writing a note.
+ - Notes are stored as plain text (.txt).
+ - You can manually edit or delete notes in the storage folder.
+
+EXIT:
+-----
+Choose option [4] to exit the program.
+Temporary files are removed automatically.
+
+===PL=======================================================
+Prosty Notatnik CLI + AutoZapis — POMOC [pl]
+============================================================
+Autor:  Sebastian Januchowski
+Email:  polsoft.its@fastservice.com
+GitHub: https://github.com/seb07uk
+Grupa:  psCLI Tools
+Moduł:  Notepad CLI
+============================================================
+
+OPIS:
+-----
+Simple Notepad PRO to lekkie narzędzie notatnika działające w trybie
+wiersza poleceń, wyposażone w automatyczny zapis, przeglądanie notatek
+oraz wbudowany podgląd. Notatki są przechowywane w katalogu użytkownika:
+
+  %USERPROFILE%\.polsoft\psCLI\Notepad
+
+Program umożliwia:
+ - tworzenie nowych notatek z auto‑zapisem,
+ - przeglądanie notatek za pomocą klawiatury,
+ - otwieranie i czytanie zapisanych notatek,
+ - wyświetlanie informacji o autorze.
+
+FUNKCJE:
+--------
+[1] Nowa Notatka (Auto‑Zapis)
+    - Uruchamia tryb wprowadzania tekstu.
+    - Wpisz dowolną treść notatki.
+    - Naciśnij CTRL+Z, a następnie ENTER, aby zakończyć.
+    - Notatka zostanie automatycznie zapisana z nazwą zawierającą datę.
+
+[2] Przeglądaj Notatki (W/S/O)
+    - W = przesunięcie zaznaczenia w górę
+    - S = przesunięcie zaznaczenia w dół
+    - O = otwarcie wybranej notatki
+    - Q = powrót do menu głównego
+    - Notatki wyświetlane są od najnowszych.
+
+[3] Informacje o Autorze
+    - Wyświetla dane autora oraz linki do projektu.
+
+[4] Wyjście
+    - Bezpiecznie zamyka program.
+    - Usuwa pliki tymczasowe, jeśli istnieją.
+
+SZCZEGÓŁY AUTO‑ZAPISU:
+----------------------
+Każda nowa notatka jest automatycznie zapisywana z unikalnym znacznikiem czasu:
+
+  Note_RRRR-MM-DD_GG-MM-SS.txt
+
+Skrypt zapewnia:
+ - brak nadpisywania istniejących notatek,
+ - bezpieczne tworzenie katalogu na notatki,
+ - czyszczenie plików tymczasowych.
+
+PODGLĄD NOTATEK:
+----------------
+Podczas otwierania notatki:
+ - Wyświetlana jest nazwa pliku.
+ - Pokazywana jest pełna treść notatki.
+ - Naciśnij dowolny klawisz, aby wrócić do listy notatek.
+
+OBSŁUGA BŁĘDÓW:
+---------------
+ - Jeśli nie istnieją żadne notatki, przeglądarka wyświetli ostrzeżenie.
+ - Jeśli notatka została usunięta lub nie istnieje, pojawi się błąd.
+ - Puste lub anulowane tworzenie notatki jest wykrywane i ignorowane.
+
+WYMAGANIA:
+----------
+ - Windows 7/10/11
+ - Terminal zgodny z ANSI (zalecany Windows 10+)
+ - Standardowe środowisko CMD
+
+PORADY DOTYCZĄCE UŻYTKOWANIA:
+-----------------------------
+ - Użyj CTRL+Z + ENTER, aby zakończyć pisanie notatki.
+ - Notatki są zapisywane jako zwykłe pliki tekstowe (.txt).
+ - Możesz ręcznie edytować lub usuwać notatki w folderze zapisu.
+
+WYJŚCIE:
+--------
+Wybierz opcję [4], aby zamknąć program.
+Pliki tymczasowe są usuwane automatycznie.
+
+============================================================
+        Dziękujemy za korzystanie z Notepad PRO CLI!
+============================================================

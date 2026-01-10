@@ -1,0 +1,124 @@
+USB WRITE PROTECTION - HELP
+============================================================
+
+DESCRIPTION:
+    This tool allows you to quickly manage USB write protection
+    by modifying Windows Registry settings. Administrator
+    privileges are required (the script automatically elevates
+    itself if needed).
+
+PROGRAM FUNCTIONS:
+
+  [1] Enable USB Write Protection
+        - Sets the registry value:
+              HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\
+              Control\StorageDevicePolicies\WriteProtect = 1
+        - Effect: all USB storage devices become read‑only.
+        - Use cases: preventing data copying, securing public
+          workstations, kiosks, corporate environments.
+
+  [2] Disable USB Write Protection
+        - Sets the registry value:
+              WriteProtect = 0
+        - Effect: full write access to USB devices is restored.
+        - Use cases: returning the system to normal operation.
+
+  [3] Check Current Status
+        - Reads the WriteProtect value from the registry.
+        - Possible results:
+              0 = write protection disabled
+              1 = write protection enabled
+        - Useful for quick configuration verification.
+
+  [4] iNfO
+        - Displays author information, version, and contact details.
+
+  [0] Exit
+        - Closes the program.
+
+REQUIREMENTS:
+    - Windows operating system with access to the registry.
+    - Administrator privileges (the script enforces elevation).
+    - The StorageDevicePolicies key will be created automatically
+      if it does not exist.
+
+HOW IT WORKS:
+    The program uses:
+        reg add
+        reg query
+    to modify and read the WriteProtect registry value.
+
+NOTES:
+    - You may need to reconnect the USB device for changes to apply.
+    - In domain environments, Group Policy (GPO) may override
+      local settings.
+    - The tool does NOT delete or modify data — it only controls
+      write access.
+
+AUTHOR:
+    Sebastian Januchowski
+    email:   polsoft.its@fastservice.com
+    github:  https://github.com/seb07uk
+
+=POLISH=====================================================
+                    USB WRITE PROTECTION
+                        PLIK POMOCY
+============================================================
+
+OPIS:
+    Narzędzie umożliwia szybkie zarządzanie blokadą zapisu
+    na urządzeniach USB poprzez modyfikację wpisów rejestru
+    Windows. Wymagane są uprawnienia administratora.
+
+FUNKCJE PROGRAMU:
+
+  [1] Włącz blokadę zapisu USB
+        - Ustawia wartość:
+              HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\
+              Control\StorageDevicePolicies\WriteProtect = 1
+        - Efekt: wszystkie urządzenia USB stają się tylko do odczytu.
+        - Zastosowanie: ochrona przed kopiowaniem danych na USB,
+          zabezpieczenie stanowisk publicznych, kiosków, itp.
+
+  [2] Wyłącz blokadę zapisu USB
+        - Ustawia wartość:
+              WriteProtect = 0
+        - Efekt: pełny dostęp do zapisu na urządzeniach USB.
+        - Zastosowanie: przywrócenie normalnej pracy użytkownika.
+
+  [3] Sprawdź aktualny stan
+        - Odczytuje wartość WriteProtect z rejestru.
+        - Wyniki:
+              0 = blokada wyłączona
+              1 = blokada włączona
+        - Umożliwia szybkie sprawdzenie konfiguracji systemu.
+
+  [4] iNfO
+        - Wyświetla informacje o autorze, wersji i kontakcie.
+
+  [0] Wyjdź
+        - Zamyka program.
+
+WYMAGANIA:
+    - System Windows z dostępem do rejestru.
+    - Uruchomienie jako administrator (program sam to wymusza).
+    - Klucz StorageDevicePolicies zostanie utworzony automatycznie,
+      jeśli nie istnieje.
+
+DZIAŁANIE:
+    Program korzysta z polecenia:
+        reg add / reg query
+    aby modyfikować ustawienia WriteProtect.
+
+UWAGI:
+    - Zmiana może wymagać ponownego podłączenia urządzenia USB.
+    - W niektórych środowiskach domenowych ustawienia mogą być
+      nadpisywane przez GPO.
+    - Narzędzie nie usuwa danych — jedynie blokuje możliwość zapisu.
+
+AUTOR:
+    Sebastian Januchowski
+    email:   polsoft.its@fastservice.com
+    github:  https://github.com/seb07uk
+
+============================================================
