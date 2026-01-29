@@ -1,0 +1,18 @@
+Skrypty BAT (.bat) i CMD (.cmd) to pliki tekstowe w systemie Windows. Zawierają sekwencje poleceń. Interpreter wiersza poleceń (cmd.exe) wykonuje je automatycznie. Służą do automatyzacji zadań, takich jak kopiowanie plików lub zmiana konfiguracji systemu. Tworzy się je w Notatniku i zapisuje z odpowiednim rozszerzeniem. 
+Kluczowe informacje:
+Tworzenie: Skrypty tworzy się w edytorze tekstu, np. Notatniku. Należy zapisać plik z rozszerzeniem .bat lub .cmd.
+Podstawowe polecenia:
+@echo off - ukrywa komendy, wyświetlając tylko wyniki.
+echo [tekst] - wyświetla tekst na ekranie.
+pause - wstrzymuje działanie skryptu do momentu naciśnięcia klawisza.
+cls - czyści ekran konsoli.
+del, copy, move - podstawowe operacje na plikach.
+Uruchamianie: Kliknij dwukrotnie na plik lub wpisz jego nazwę w cmd.exe.
+Uprawnienia: Aby uruchomić skrypt z uprawnieniami administratora, kliknij na plik prawym przyciskiem myszy i wybierz "Uruchom jako administrator".
+Różnice: .bat to starszy format (kompatybilny z DOS). .cmd jest dedykowany dla nowszych systemów Windows NT, choć działają niemal identycznie. 
+Przykład prostego skryptu:
+batch
+@echo off
+echo Witam!
+dir
+pause

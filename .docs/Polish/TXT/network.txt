@@ -1,0 +1,25 @@
+Batch script has the facility to work with network settings. The NET command is used to update, fix, or view the network or network settings. This chapter looks at the different options available for the net command.
+
+S.No	NET Commands & Description
+1	NET ACCOUNTS
+View the current password & logon restrictions for the computer.
+
+2	NET CONFIG
+Displays your current server or workgroup settings.
+
+3	NET COMPUTER
+Adds or removes a computer attached to the windows domain controller.
+
+4	NET USER
+This command can be used for the following
+
+View the details of a particular user account.
+
+5	NET STOP/START
+This command is used to stop and start a particular service.
+
+6	NET STATISTICS
+Display network statistics of the workstation or server.
+
+7	NET USE
+Connects or disconnects your computer from a shared resource or displays information about your connections.

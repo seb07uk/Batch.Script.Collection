@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatchHub - Profesjonalne Archiwum Skryptów Batch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00ff41;
+            --secondary-color: #00aa88;
+            --dark-bg: #0a0e27;
+            --darker-bg: #050810;
+            --text-color: #00ff41;
+            --text-secondary: #00cc33;
+            --border-color: #00ff41;
+            --hover-color: #00ff88;
+            --danger-color: #ff0055;
+            --warning-color: #ffaa00;
+        }
+
+        body {
+            font-family: 'Courier New', 'Monaco', monospace;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Terminal effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 65, 0.03),
+                rgba(0, 255, 65, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1;
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            50% { opacity: 1; }
+            100% { opacity: 0.97; }
+        }
+
+        /* Scan lines effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.05) 2px,
+                rgba(0, 0, 0, 0.05) 4px
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(180deg, rgba(0, 170, 136, 0.2) 0%, transparent 100%);
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .terminal-prompt {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--text-color);
+            text-shadow: 0 0 10px var(--text-color),
+                        0 0 20px var(--secondary-color);
+            margin: 1rem 0;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--secondary-color); }
+            50% { text-shadow: 0 0 20px var(--text-color), 0 0 40px var(--secondary-color), 0 0 60px var(--text-color); }
+        }
+
+        .tagline {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            border: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            background: rgba(0, 255, 65, 0.05);
+            border-radius: 3px;
+            box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--hover-color);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .nav-tab {
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 65, 0.2);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-tab:hover::before {
+            left: 0;
+        }
+
+        .nav-tab:hover {
+            box-shadow: 0 0 15px var(--text-color),
+                       inset 0 0 10px rgba(0, 255, 65, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: var(--text-color);
+            color: var(--darker-bg);
+            box-shadow: 0 0 20px var(--text-color);
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(0, 170, 136, 0.1) 0%, rgba(0, 255, 65, 0.05) 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 5px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 170, 136, 0.2);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-color);
+            box-shadow: 0 0 30px var(--text-color),
+                       0 0 50px rgba(0, 255, 65, 0.2);
+            background: linear-gradient(135deg, rgba(0, 170, 136, 0.2) 0%, rgba(0, 255, 65, 0.1) 100%);
+        }
+
+        .category-card::before {
+            opacity: 1;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--hover-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px var(--text-color);
+        }
+
+        .category-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .script-count {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--darker-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--hover-color);
+            box-shadow: 0 0 20px var(--text-color),
+                       inset 0 0 10px rgba(0, 255, 65, 0.1);
+            background: rgba(0, 255, 65, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: rgba(0, 255, 65, 0.5);
+        }
+
+        .script-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .script-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .script-item::before {
+            content: '> ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 1.5rem;
+            color: var(--text-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .script-item:hover {
+            transform: translateX(10px);
+            border-left-color: var(--text-color);
+            background: rgba(0, 255, 65, 0.05);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+
+        .script-item:hover::before {
+            opacity: 1;
+        }
+
+        .script-name {
+            font-size: 1.1rem;
+            color: var(--hover-color);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .script-path {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .script-description {
+            color: rgba(0, 255, 65, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .script-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .script-tag {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--darker-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .feature-section {
+            background: rgba(0, 170, 136, 0.1);
+            border: 2px solid var(--secondary-color);
+            border-radius: 5px;
+            padding: 2rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .feature-section::before {
+            content: '◇ ';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--dark-bg);
+            padding: 0 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-title {
+            font-size: 1.8rem;
+            color: var(--hover-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 5px var(--text-color);
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 3px solid var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        .feature-item-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item-title {
+            color: var(--hover-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 170, 136, 0.1) 100%);
+            border-top: 2px solid var(--secondary-color);
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-link:hover {
+            color: var(--hover-color);
+            text-shadow: 0 0 10px var(--text-color);
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--secondary-color);
+            border-radius: 3px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .learning-path {
+            background: rgba(0, 170, 136, 0.1);
+            border: 2px solid var(--text-color);
+            border-radius: 5px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .learning-path-title {
+            color: var(--hover-color);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .path-level {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .path-level:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .level-name {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .level-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dotted var(--text-color);
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary-color);
+            color: var(--darker-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            z-index: 100;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .stats {
+                gap: 1rem;
+            }
+
+            .stat {
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49%, 100% { opacity: 1; }
+            50%, 99% { opacity: 0.3; }
+        }
+
+        .highlight {
+            color: var(--warning-color);
+            font-weight: bold;
+        }
+
+        .success {
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .danger {
+            color: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="terminal-prompt">$ sudo ./BatchHub --premium</div>
+            <h1>█▀▄ ▄▀█ ▀█▀ ▄▀▀ █ █ █ █ █</h1>
+            <div class="terminal-prompt">loading batch scripts database...</div>
+            <p class="tagline">Profesjonalne Archiwum & Platforma Edukacyjna dla Skryptów Batch</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Skryptów</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Kategorii</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Możliwości</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Features Section -->
+        <div class="feature-section">
+            <div class="feature-title">◇ Główne Cechy Platformy</div>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-item-icon">🔍</div>
+                    <div class="feature-item-title">Wyszukiwanie</div>
+                    <div class="feature-item-text">Szybkie wyszukiwanie wśród 200+ skryptów</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">📚</div>
+                    <div class="feature-item-title">Edukacja</div>
+                    <div class="feature-item-text">Ścieżki nauki dla każdego poziomu</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">⚙️</div>
+                    <div class="feature-item-title">Systemy</div>
+                    <div class="feature-item-text">Skrypty systemowe dla Windows</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">🎮</div>
+                    <div class="feature-item-title">Gry & Art</div>
+                    <div class="feature-item-text">Zabawy i sztuka ASCII w batch</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">📖</div>
+                    <div class="feature-item-title">Dokumentacja</div>
+                    <div class="feature-item-text">Pełna dokumentacja w polskim</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">🛡️</div>
+                    <div class="feature-item-title">Bezpieczne</div>
+                    <div class="feature-item-text">Przejrzyste, bezpieczne skrypty</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="$ search scripts... (np. calculator, clock, matrix)">
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('archive')">📦 Archiwum</button>
+            <button class="nav-tab" onclick="switchTab('learning')">🎓 Nauka</button>
+            <button class="nav-tab" onclick="switchTab('guides')">📖 Przewodniki</button>
+            <button class="nav-tab" onclick="switchTab('about')">ℹ️ O Projekcie</button>
+        </div>
+
+        <!-- ARCHIVE TAB -->
+        <div id="archive" class="tab-content active">
+            <div class="feature-title" style="margin-bottom: 2rem;">Archiwum Skryptów</div>
+            
+            <div class="category-grid" id="categoryGrid">
+                <!-- Dynamically populated -->
+            </div>
+
+            <div id="scriptsList"></div>
+        </div>
+
+        <!-- LEARNING TAB -->
+        <div id="learning" class="tab-content">
+            <div class="feature-title" style="margin-bottom: 2rem;">Ścieżka Nauki Batch Scripts</div>
+            
+            <div class="learning-path">
+                <div class="learning-path-title">🟢 Poziom 1: Początkujący (4 godziny)</div>
+                <div class="path-level">
+                    <div class="level-name">→ Kroki do wykonania:</div>
+                    <div class="level-description">
+                        1. Przeczytaj DOCUMENTATION_GUIDE.md (15 min)<br>
+                        2. Zapoznaj się z Comprehensive Guide - Podstawy (2 godziny)<br>
+                        3. Przejrzyj Quick Reference (1 godzina)<br>
+                        4. Eksperymentuj z prostymi skryptami z kategorii Games & Art (30 min)
+                    </div>
+                </div>
+                <div class="path-level">
+                    <div class="level-name">⚡ Umiejętności:</div>
+                    <div class="level-description">
+                        Podstawowe komendy, zmienne, pętle IF/FOR, redirekcja, tworzenie prostych skryptów
+                    </div>
+                </div>
+                <div class="path-level">
+                    <div class="level-name">📚 Zasoby:</div>
+                    <div class="level-description">
+                        Batch_Scripts_Comprehensive_Guide.md<br>
+                        Batch_Quick_Reference.md<br>
+                        Batch_Practical_Examples.md
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                <div class="learning-path-title">🟡 Poziom 2: Średniozaawansowany (5 godzin)</div>
+                <div class="path-level">
+                    <div class="level-name">→ Kroki do wykonania:</div>
+                    <div class="level-description">
+                        1. Przejrzyj Comprehensive Guide - Tematy Zaawansowane (2 godziny)<br>
+                        2. Izoluj Advanced Guide - pierwsze 3 sekcje (1 godzina)<br>
+                        3. Analizuj skrypty systemowe (Clear, File Manager) (1 godzina)<br>
+                        4. Zmodyfikuj gotowe skrypty dostosowując je do swoich potrzeb (1 godzina)
+                    </div>
+                </div>
+                <div class="path-level">
+                    <div class="level-name">⚡ Umiejętności:</div>
+                    <div class="level-description">
+                        Obsługa błędów, zaawansowane zmienne, funkcje CALL, debugowanie, integracja z PowerShell
+                    </div>
+                </div>
+                <div class="path-level">
+                    <div class="level-name">📚 Zasoby:</div>
+                    <div class="level-description">
+                        Batch_Advanced_Guide.md<br>
+                        Batch_Scripts_Complete_Collection.md<br>
+                        Batch_Practical_Examples.md
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                <div class="learning-path-title">🔴 Poziom 3: Zaawansowany (7+ godzin + projekty)</div>
+                <div class="path-level">
+                    <div class="level-name">→ Kroki do wykonania:</div>
+                    <div class="level-description">
+                        1. Przeczytaj pełny Advanced Guide (2 godziny)<br>
+                        2. Analizuj skrypty pro (Calculator Pro, Clock Hacker) (2 godziny)<br>
+                        3. Twórz własne projekty (instalator, system monitorujący) (3+ godziny)<br>
+                        4. Testuj, debuguj, optymalizuj swoje rozwiązania
+                    </div>
+                </div>
+                <div class="path-level">
+                    <div class="level-name">⚡ Umiejętności:</div>
+                    <div class="level-description">
+                        Architektura aplikacji, design patterns, bezpieczeństwo, optymalizacja, profesjonalne kodowanie, deployement
+                    </div>
+                </div>
+                <div class="path-level">
+                    <div class="level-name">📚 Zasoby:</div>
+                    <div class="level-description">
+                        Wszystkie dokumenty + praktyka + tworzenie własnych projektów
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GUIDES TAB -->
+        <div id="guides" class="tab-content">
+            <div class="feature-title" style="margin-bottom: 2rem;">Przewodniki & Dokumentacja</div>
+            
+            <div class="script-list">
+                <div class="script-item">
+                    <div class="script-name">📘 Batch_Script_Comprehensive_Guide.md</div>
+                    <div class="script-description">Kompletny przewodnik obejmujący historię, podstawy, komendy, zmienne, konstrukty kontrolne, zaawansowane techniki i praktyczne przykłady (15,000 słów)</div>
+                    <div class="script-tags">
+                        <span class="script-tag">📚 Teoria</span>
+                        <span class="script-tag">Dla Wszystkich</span>
+                        <span class="script-tag">4-6 godzin</span>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">⚡ Batch_Quick_Reference.md</div>
+                    <div class="script-description">Szybki cheat sheet do zapamiętania - składnie, komendy, zmienne, redirekcja, szablony i szybkie kombinacje (5,000 słów)</div>
+                    <div class="script-tags">
+                        <span class="script-tag">🔍 Lookup</span>
+                        <span class="script-tag">Szybki Dostęp</span>
+                        <span class="script-tag">2 minuty</span>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">🚀 Batch_Advanced_Guide.md</div>
+                    <div class="script-description">Dla profesjonalistów - architektura, design patterns, bezpieczeństwo, debugowanie, optymalizacja, integracja z PowerShell (8,000 słów)</div>
+                    <div class="script-tags">
+                        <span class="script-tag">👨‍💻 Pro</span>
+                        <span class="script-tag">Zaawansowane</span>
+                        <span class="script-tag">3-4 godziny</span>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">💡 Batch_Practical_Examples.md</div>
+                    <div class="script-description">Praktyczne przykłady z każdej kategorii - ASCII Art, Kalkulatory, Gry, narzędzia systemowe z wyjaśnieniami (6,000 słów)</div>
+                    <div class="script-tags">
+                        <span class="script-tag">🎯 Praktyka</span>
+                        <span class="script-tag">Learning by Doing</span>
+                        <span class="script-tag">2-3 godziny</span>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">📖 Batch_Commands_Reference_Extended.md</div>
+                    <div class="script-description">Rozszerzone odniesienie wszystkich poleceń batch z opisami, parametrami i przykładami użycia</div>
+                    <div class="script-tags">
+                        <span class="script-tag">📚 Referencyjna</span>
+                        <span class="script-tag">Lookup</span>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">📑 DOCUMENTATION_GUIDE.md</div>
+                    <div class="script-description">Mapa całej dokumentacji - gdzie znaleźć informacje, ścieżka nauki, FAQ, wymagania systemowe</div>
+                    <div class="script-tags">
+                        <span class="script-tag">🗺️ Mapa</span>
+                        <span class="script-tag">Punkt Startu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT TAB -->
+        <div id="about" class="tab-content">
+            <div class="feature-title" style="margin-bottom: 2rem;">O Projekcie BatchHub</div>
+            
+            <div class="script-list">
+                <div class="script-item">
+                    <div class="script-name">🎯 Misja Projektu</div>
+                    <div class="script-description">BatchHub jest platformą edukacyjną i archiwum profesjonalnych skryptów Batch dla Windows. Łączy teorię z praktyką, oferując zarówno komprehensywne przewodniki, jak i gotowe do użycia skrypty zorganizowane w logiczne kategorie.</div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">✨ Zawartość Projektu</div>
+                    <div class="script-description">
+                        <div style="margin-top: 0.5rem;">
+                            📦 200+ Skryptów Batch<br>
+                            📚 5+ Komprehensywnych Przewodników<br>
+                            🎮 Gry i Arte ASCII<br>
+                            🛠️ Narzędzia Systemowe<br>
+                            💻 Kalkulatory i Timery<br>
+                            📋 Konfiguratory Systemu<br>
+                            🔧 Narzędzia Developerskie
+                        </div>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">👨‍💻 Autor & Kredyty</div>
+                    <div class="script-description">Projekt stworzony przez Sebastian Januchowski (polsoft.ITS)<br>
+                    <a href="https://github.com/seb07uk" class="footer-link">GitHub: seb07uk</a></div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">📊 Statystyki Projektu</div>
+                    <div class="script-description">
+                        <div style="margin-top: 0.5rem;">
+                            📝 50,000+ Słów Dokumentacji<br>
+                            🐍 Skrypty w czystym Batch (cmd, bat)<br>
+                            🌍 Dostępna Polska & Angielska Dokumentacja<br>
+                            ✅ Testowane na Windows 10/11<br>
+                            📄 Licencja: MIT
+                        </div>
+                    </div>
+                </div>
+
+                <div class="script-item">
+                    <div class="script-name">🚀 Jak Zacząć?</div>
+                    <div class="script-description">
+                        <div style="margin-top: 0.5rem;">
+                            1. Przejrzyj sekcję "Archiwum" aby zobaczyć dostępne skrypty<br>
+                            2. Wybierz kategorię interesującą cię<br>
+                            3. Przeczytaj "Nauka" aby zobaczyć rekomendowaną ścieżkę<br>
+                            4. Pobierz i eksperymentuj ze skryptami<br>
+                            5. Daj nam znać jak je ulepszyć!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">$ BatchHub © 2026 | Professional Batch Script Archive & Learning Platform</div>
+            <div class="footer-links">
+                <a href="https://github.com/seb07uk/Batch.Script.Collection" class="footer-link">GitHub Repository</a>
+                <a href="#archive" class="footer-link" onclick="switchTab('archive')">Archive</a>
+                <a href="#learning" class="footer-link" onclick="switchTab('learning')">Learning Path</a>
+                <a href="#about" class="footer-link" onclick="switchTab('about')">About</a>
+            </div>
+            <div class="footer-text">Crafted with <span style="color: var(--danger-color);">❤</span> in Binary | Made for Batch Enthusiasts</div>
+            <div class="footer-text">Version 1.0 | Live Terminal Interface | Support Windows 10/11</div>
+        </div>
+    </footer>
+
+    <script>
+        // Data structure with all scripts
+        const categories = [
+            {
+                id: 'ascii-art',
+                title: 'ASCII Art & Efekty Wizualne',
+                icon: '🎨',
+                description: 'Spektakularne efekty wizualne i sztuka ASCII w terminalu',
+                scripts: [
+                    { name: 'Matrix.cmd', path: 'ASCII Art/', desc: 'Efekt Matrixa - zielone znaki spadające po ekranie', tags: ['visual', 'efekt'] },
+                    { name: 'Parrot.bat', path: 'ASCII Art/', desc: 'Latająca papuga w terminalu - zabawna animacja', tags: ['visual', 'animacja'] },
+                    { name: 'Windows Logo.bat', path: 'ASCII Art/', desc: 'Logo Windows narysowane w ASCII art', tags: ['art', 'logo'] },
+                    { name: 'Windows Activation Tools.bat', path: 'ASCII Art/', desc: 'Profesjonalne narzędzie do aktywacji Windows', tags: ['system', 'admin'] }
+                ]
+            },
+            {
+                id: 'calculators',
+                title: 'Kalkulatory & Arytmetyka',
+                icon: '🧮',
+                description: 'Kalkulatory od prostych do zaawansowanych w czystym Batch',
+                scripts: [
+                    { name: 'Simple CMD Calculator.bat', path: 'Calculator/', desc: 'Prosty kalkulator z podstawowymi operacjami', tags: ['basic', 'math'] },
+                    { name: 'Calculator Basic.cmd', path: 'Calculator/', desc: 'Wersja podstawowa - dodawanie, odejmowanie, mnożenie', tags: ['basic', 'tutorial'] },
+                    { name: 'Calculator CMD.bat', path: 'Calculator/', desc: 'Kalkulator ze zmiennoprzecinkowym wsparciem', tags: ['math', 'advanced'] },
+                    { name: 'Calculator Pro v1.8.cmd', path: 'Calculator/', desc: 'Profesjonalna wersja z zaawansowanymi funkcjami', tags: ['pro', 'advanced'] }
+                ]
+            },
+            {
+                id: 'system-cleanup',
+                title: 'Czyszczenie & Optymalizacja',
+                icon: '🧹',
+                description: 'Skrypty do czyszczenia systemu i odzyskiwania przestrzeni',
+                scripts: [
+                    { name: 'Clear Cookies.bat', path: 'Clear/', desc: 'Usuwa cookies z przeglądarek', tags: ['cleanup', 'privacy'] },
+                    { name: 'Clear Temp.bat', path: 'Clear/', desc: 'Czysci pliki tymczasowe systemu', tags: ['optimization', 'cleanup'] },
+                    { name: 'Clear Temporary Internet Files.bat', path: 'Clear/', desc: 'Usuwa cache przeglądarek internetowych', tags: ['privacy', 'cleanup'] },
+                    { name: 'Clear Windows Defender History.cmd', path: 'Clear/', desc: 'Czysci historię skanów Defender', tags: ['security', 'admin'] },
+                    { name: 'Clear Thumbnail Cache.bat', path: 'Clear/', desc: 'Usuwa cache miniatur plików', tags: ['optimization', 'cleanup'] },
+                    { name: 'Clear Pending Windows Updates.bat', path: 'Clear/', desc: 'Czysci zbiór aktualizacji Windows', tags: ['system', 'maintenance'] },
+                    { name: 'Empty Bin.cmd', path: 'Clear/', desc: 'Opróżnia kosz systemowy', tags: ['cleanup', 'maintenance'] }
+                ]
+            },
+            {
+                id: 'clock-time',
+                title: 'Zegary & Timery',
+                icon: '⏰',
+                description: 'Różne implementacje zegarów i timerów w terminalu',
+                scripts: [
+                    { name: 'Clock.bat', path: 'Clock/', desc: 'Prosty zegar wyświetlający godzinę', tags: ['basic', 'time'] },
+                    { name: 'Clock-Origin.bat', path: 'Clock/', desc: 'Oryginalna wersja zegara', tags: ['timer', 'time'] },
+                    { name: 'Clock-Sec-Origin.bat', path: 'Clock/', desc: 'Zegar z wyświetlaniem sekund', tags: ['timer', 'precise'] },
+                    { name: 'Clock-Sec-OriginHacker.bat', path: 'Clock/', desc: 'Zegar w hackerskim stylu z efektami', tags: ['hacker', 'visual'] },
+                    { name: 'Clock-Sec-OriginGhost.bat', path: 'Clock/', desc: 'Zegar z przezroczystym efektem', tags: ['visual', 'timer'] },
+                    { name: 'Clock-Sec-High efficiency.bat', path: 'Clock/', desc: 'Zegar zoptymalizowany pod kątem wydajności', tags: ['optimized', 'pro'] },
+                    { name: 'Clock-Sec-High efficiencyColorful.bat', path: 'Clock/', desc: 'Kolorowa wersja zoptymalizowanego zegara', tags: ['visual', 'optimized'] }
+                ]
+            },
+            {
+                id: 'cli-menu',
+                title: 'Menu & Interface CLI',
+                icon: '📋',
+                description: 'Interaktywne menu i interfejsy w linii poleceń',
+                scripts: [
+                    { name: 'Simple CMD Menu.cmd', path: 'Cli Menu/', desc: 'Proste menu wyboru w terminalu', tags: ['ui', 'basic'] },
+                    { name: 'Multiline menu in CMD.bat', path: 'Cli Menu/', desc: 'Wieloliniowe menu z zaawansowanym formatowaniem', tags: ['ui', 'advanced'] },
+                    { name: 'Choose an exit option.cmd', path: 'Cli Menu/', desc: 'Menu wyboru opcji wyjścia z aplikacji', tags: ['ui', 'control'] },
+                    { name: 'Hybrid Batch + PowerShell script.bat', path: 'Cli Menu/', desc: 'Hybrydowy skrypt łączący Batch i PowerShell', tags: ['hybrid', 'integration'] }
+                ]
+            },
+            {
+                id: 'games',
+                title: '🎮 Gry & Zabawy',
+                icon: '👾',
+                description: 'Gry i zabawne skrypty napisane w czystym Batch',
+                scripts: [
+                    { name: 'TicTacToe.bat', path: 'Games/', desc: 'Klasyczna gra Kółko i Krzyżyk', tags: ['game', 'classic'] },
+                    { name: 'Snake.bat', path: 'Games/', desc: 'Klasyczna gra Snake w terminalu', tags: ['game', 'classic'] },
+                    { name: 'Minesweeper.bat', path: 'Games/', desc: 'Gra Saperka w wersji batch', tags: ['game', 'logic'] },
+                    { name: 'Rubik.bat', path: 'Games/', desc: 'Symulator kostki Rubika', tags: ['puzzle', 'game'] },
+                    { name: 'Guessing Game.bat', path: 'Games/', desc: 'Gra w zgadywanie liczby', tags: ['game', 'simple'] },
+                    { name: 'Rock Paper Scissors.bat', path: 'Games/', desc: 'Papier, Kamień, Nożyce - zawierz SI', tags: ['game', 'logic'] }
+                ]
+            },
+            {
+                id: 'diagnostics',
+                title: '🔍 Diagnostyka & System Info',
+                icon: '📊',
+                description: 'Narzędzia do diagnozowania i zbierania informacji o systemie',
+                scripts: [
+                    { name: 'System Information.cmd', path: 'Diagnostic - info/', desc: 'Pełne informacje o systemie Windows', tags: ['sysinfo', 'admin'] },
+                    { name: 'RAM Information.cmd', path: 'Diagnostic - info/', desc: 'Szczegółowe informacje o pamięci RAM', tags: ['hardware', 'sysinfo'] },
+                    { name: 'Hardware Information.cmd', path: 'Diagnostic - info/', desc: 'Informacje o sprzęcie komputera', tags: ['hardware', 'diagnostic'] },
+                    { name: 'Network Diagnostic.cmd', path: 'Diagnostic - info/', desc: 'Diagnostyka sieci i połączenia', tags: ['network', 'diagnostic'] }
+                ]
+            },
+            {
+                id: 'file-manager',
+                title: '📁 Menedżer Plików',
+                icon: '📂',
+                description: 'Narzędzia do zarządzania plikami i katalogami',
+                scripts: [
+                    { name: 'File Manager Pro v1.5.bat', path: 'File Manager/', desc: 'Profesjonalny menedżer plików w batch', tags: ['pro', 'fileops'] },
+                    { name: 'File List Generator.bat', path: 'File List Generator/', desc: 'Generator listy plików z katalogów', tags: ['utility', 'fileops'] },
+                    { name: 'Bulk Rename.bat', path: 'File Manager/', desc: 'Zbiorcze zmiana nazw plików', tags: ['advanced', 'fileops'] }
+                ]
+            },
+            {
+                id: 'tools',
+                title: '🛠️ Narzędzia Systemowe',
+                icon: '⚙️',
+                description: 'Zaawansowane narzędzia systemowe i administracyjne',
+                scripts: [
+                    { name: 'Restart Explorer.cmd', path: 'Tools/', desc: 'Restartuje Eksplorator Windows', tags: ['system', 'maintenance'] },
+                    { name: 'Registry Editor.cmd', path: 'RegEditer/', desc: 'Narzędzie do edycji rejestru Windows', tags: ['admin', 'registry'] },
+                    { name: 'USB Write Protection.bat', path: 'USB Write Protection/', desc: 'Manager ochrony przed zapisem na USB', tags: ['security', 'usb'] }
+                ]
+            },
+            {
+                id: 'bat2exe',
+                title: '📦 Konwerter Bat2Exe',
+                icon: '🔄',
+                description: 'Narzędzie do konwertowania skryptów Batch na pliki EXE',
+                scripts: [
+                    { name: 'Bat2Exe 1.0.bat', path: 'Bat2Exe/', desc: 'Konwertuje pliki .bat na .exe z opcjami zaawansowanymi', tags: ['converter', 'tool'] }
+                ]
+            },
+            {
+                id: 'notepad',
+                title: '📝 Notatniki',
+                icon: '📄',
+                description: 'Proste i zaawansowane edytory notatek w batch',
+                scripts: [
+                    { name: 'Simple Notepad.bat', path: 'Notepad/', desc: 'Prosty edytor notatek', tags: ['editor', 'basic'] },
+                    { name: 'Notepad Pro v1.5.bat', path: 'Notepad/', desc: 'Profesjonalny edytor z zaawansowanymi funkcjami', tags: ['editor', 'pro'] }
+                ]
+            },
+            {
+                id: 'drivers',
+                title: '🔧 Sterowniki & Aktualizacje',
+                icon: '💿',
+                description: 'Narzędzia do instalacji i zarządzania sterownikami',
+                scripts: [
+                    { name: 'Driver Installer.bat', path: 'Drivers/', desc: 'Automatyczna instalacja sterowników', tags: ['driver', 'install'] },
+                    { name: 'Latest ADB Installer.bat', path: '_Help files/', desc: 'Instalator Android Debug Bridge', tags: ['mobile', 'tool'] }
+                ]
+            }
+        ];
+
+        // Initialize archive
+        function initializeArchive() {
+            const categoryGrid = document.getElementById('categoryGrid');
+            categoryGrid.innerHTML = '';
+
+            categories.forEach(cat => {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+                card.onclick = () => showScripts(cat.id);
+                card.innerHTML = `
+                    <div class="category-icon">${cat.icon}</div>
+                    <div class="category-title">${cat.title}</div>
+                    <div class="category-description">${cat.description}</div>
+                    <span class="script-count">${cat.scripts.length} skryptów</span>
+                `;
+                categoryGrid.appendChild(card);
+            });
+        }
+
+        // Show scripts for category
+        function showScripts(categoryId) {
+            const category = categories.find(c => c.id === categoryId);
+            if (!category) return;
+
+            const scriptsList = document.getElementById('scriptsList');
+            scriptsList.innerHTML = `<div class="feature-title" style="margin: 3rem 0 2rem 0;">${category.icon} ${category.title}</div>`;
+            
+            const listContainer = document.createElement('div');
+            listContainer.className = 'script-list';
+
+            category.scripts.forEach(script => {
+                const item = document.createElement('div');
+                item.className = 'script-item';
+                item.innerHTML = `
+                    <div class="script-name">📜 ${script.name}</div>
+                    <div class="script-path">Lokalizacja: ${script.path}</div>
+                    <div class="script-description">${script.desc}</div>
+                    <div class="script-tags">
+                        ${script.tags.map(tag => `<span class="script-tag">${tag}</span>`).join('')}
+                    </div>
+                `;
+                listContainer.appendChild(item);
+            });
+
+            scriptsList.appendChild(listContainer);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const allScripts = document.querySelectorAll('.script-item');
+            
+            allScripts.forEach(script => {
+                const name = script.querySelector('.script-name').textContent.toLowerCase();
+                const desc = script.querySelector('.script-description').textContent.toLowerCase();
+                const tags = script.querySelector('.script-tags').textContent.toLowerCase();
+
+                if (name.includes(searchTerm) || desc.includes(searchTerm) || tags.includes(searchTerm)) {
+                    script.style.display = 'block';
+                    script.style.animation = 'slideIn 0.3s ease';
+                } else {
+                    script.style.display = 'none';
+                }
+            });
+        });
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            initializeArchive();
+        });
+
+        // Add some terminal flavor
+        console.log('%c🔒 BatchHub Terminal Interface v1.0', 'color: #00ff41; font-size: 16px; text-shadow: 0 0 10px #00ff41');
+        console.log('%c$ sudo ./batchterminal --premium\\n[+] Loading scripts database...[+] Initializing security features...[+] Ready for deployment', 'color: #00aa88; font-family: monospace; font-size: 12px');
+    </script>
+</body>
+</html>

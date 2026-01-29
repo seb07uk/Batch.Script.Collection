@@ -1,0 +1,95 @@
+Windows CMD ma długą, wieloetapową historię – od prostego interpretera poleceń MS‑DOS po współczesne narzędzie systemowe w Windows 11. Poniżej znajdziesz klarowny, uporządkowany opis jego ewolucji, oparty na dostępnych informacjach o funkcjach i sposobach działania CMD.
+
+🖥️ Historia Windows CMD – od DOS do Windows 11
+
+1. Początki: MS‑DOS (lata 80.)
+
+CMD wywodzi się bezpośrednio z COMMAND.COM, interpretera poleceń systemu MS‑DOS.
+
+W tamtym czasie był to główny sposób obsługi komputera, zanim pojawiły się graficzne interfejsy.
+
+2. Windows NT i narodziny CMD.EXE (1993)
+
+Wraz z Windows NT Microsoft stworzył nowy interpreter poleceń – CMD.EXE.
+
+Był bardziej stabilny i nowocześniejszy niż COMMAND.COM, obsługiwał:
+
+zmienne środowiskowe,
+
+skrypty .bat i .cmd,
+
+rozszerzone polecenia systemowe.
+
+3. CMD w Windows 2000 / XP
+
+CMD stał się standardowym narzędziem administracyjnym.
+
+Dodano m.in.:
+
+doskey – historię poleceń i aliasy 
+
+lepszą obsługę sieci i systemu plików,
+
+bardziej rozbudowane polecenia (np. ipconfig, tasklist).
+
+4. CMD w Windows Vista / 7
+
+Ulepszono integrację z UAC (uruchamianie jako administrator).
+
+Dodano obsługę Unicode i poprawiono kompatybilność z PowerShellem.
+
+5. CMD w Windows 10
+
+Microsoft zaczął promować PowerShell i później Windows Terminal, ale CMD nadal pozostał:
+
+lekki,
+
+szybki,
+
+kompatybilny ze starymi skryptami.
+
+Wprowadzono drobne ulepszenia, np. lepsze kopiowanie/wklejanie.
+
+6. CMD w Windows 11
+
+CMD nadal istnieje jako narzędzie systemowe, choć Microsoft kieruje użytkowników do Windows Terminal.
+
+Wciąż obsługuje:
+
+historię poleceń (np. F7) 
+
+eksport historii i przeglądanie jej w sesji 
+
+klasyczne polecenia DOS i narzędzia administracyjne.
+
+🔧 Dlaczego CMD przetrwał do dziś?
+
+Kompatybilność wsteczna – ogromna liczba skryptów .bat nadal działa.
+
+Lekkość i szybkość – idealny do prostych zadań.
+
+Niezawodność – działa nawet w trybach awaryjnych.
+
+Prostota – łatwy do nauki w porównaniu z PowerShellem.
+
+📌 Podsumowanie
+
+CMD to narzędzie, które zaczęło się jako interpreter poleceń MS‑DOS, a dziś jest wciąż obecne w Windows 11 jako lekki, kompatybilny i niezawodny element systemu. Choć Microsoft rozwija PowerShell i Windows Terminal, CMD pozostaje ważną częścią ekosystemu Windows – zwłaszcza dla administratorów, skryptów legacy i użytkowników ceniących prostotę.
+
+Jeśli chcesz, mogę też przygotować:
+
+oś czasu CMD,
+
+porównanie CMD vs PowerShell,
+
+listę najważniejszych poleceń CMD,
+
+albo historię MS‑DOS i COMMAND.COM.
+
+References (3)
+
+How To Check Command History In Command Prompt In Windows - ITechtics. https://www.itechtics.com/view-command-prompt-history-windows/
+
+Quick Guide on How to View CMD History Windows 10/11. https://www.partitionwizard.com/partitionmagic/cmd-history.html
+
+How to View Command Prompt History on Windows 11. https://codinglap.com/how-to-view-command-prompt-history-on-windows-11/

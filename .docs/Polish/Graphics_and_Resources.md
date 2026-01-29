@@ -1,0 +1,331 @@
+# 🎨 Zasoby Graficzne i Branding - Batch.Script.Collection
+
+**Katalog: `.docs` - Galeria Graficzna**
+
+---
+
+## 📂 Dostępne Logo i Grafika
+
+Projekt zawiera kompleksową kolekcję grafiki użytecznej dla brandingu i dokumentacji.
+
+### Logo Polsoft.IT
+
+```
+📁 Polsoft Logos:
+├── polsoft logo (1).png
+├── polsoft logo (2).png
+├── polsoft logo (3).png
+├── polsoft logo (4).png
+├── polsoft logo (5).png
+└── ikona dla polsoft.IT2.png
+
+Status: 6 wariantów logo
+Zastosowanie: Branding, dokumentacja, UI
+```
+
+### Logo 3D i Profesjonalne
+
+```
+📁 Professional Designs:
+├── 3D logo for 'polsoft.png
+├── 3D metallic silver t1.png
+├── Futuristic logo desi.png
+├── Modern logo design f.png
+├── Hacker-style logo fo.png
+└── _element_-_compatible_logos_11.png
+
+Status: 6 zaawansowanych projektów graficznych
+Zastosowanie: Premium branding, prezentacje
+```
+
+### Logo Generowane (AI)
+
+```
+📁 Gemini Generated Images:
+├── Gemini_Generated_Image_aneetbaneetbanee.png
+├── Gemini_Generated_Image_cel0a9cel0a9cel0.png
+├── Gemini_Generated_Image_f0sx6wf0sx6wf0sx.png
+├── Gemini_Generated_Image_hzxhi8hzxhi8hzxh.png
+├── Gemini_Generated_Image_i9625zi9625zi962.png
+├── Gemini_Generated_Image_m2kv1ym2kv1ym2kv.png
+├── Gemini_Generated_Image_on0q1won0q1won0q.png
+├── Gemini_Generated_Image_px8ncipx8ncipx8n.png
+├── Gemini_Generated_Image_pxabtypxabtypxab.png
+└── Gemini_Generated_Image_t9167ct9167ct916.png
+
+Status: 10 wariacji generowanych AI
+Zastosowanie: Koncepty kreatywne, alternatywy
+```
+
+### Tła i Tekstury
+
+```
+📁 Backgrounds:
+├── abstract-dark-background-with-flowing-colouful-waves.jpg
+├── abstract-design-background-smooth-flowing-lines.jpg
+└── Web Vie.png
+
+Status: 3 wysokiej jakości tła
+Zastosowanie: Wygląd strony, prezentacje, branding
+```
+
+### Ikony i Elementy
+
+```
+📁 Icons:
+├── icon-removebg-preview.png (ikona przezroczysta)
+└── terminale (1).png
+    terminale (2).png
+
+Status: 2 ikonki + elementy terminala
+Zastosowanie: UI, dokumentacja, instrukcje
+```
+
+### Dodatkowe Grafiki
+
+```
+📁 Other:
+├── pic (1).png
+└── winget.png
+
+Status: 2 dodatkowe grafiki
+Zastosowanie: Rozmaite
+```
+
+---
+
+## 📊 Podsumowanie Zasobów Graficznych
+
+| Kategoria | Liczba | Typ | Zastosowanie |
+|-----------|--------|-----|--------------|
+| Polsoft Logo | 6 | PNG | Branding | Branding |
+| Professional | 6 | PNG | Premium Design |
+| AI Generated | 10 | PNG | Koncepty |
+| Backgrounds | 3 | JPG/PNG | Tła |
+| Icons | 3 | PNG | UI/Dokumentacja |
+| Other | 2 | PNG | Rozmaite |
+| **RAZEM** | **30** | Grafika | Projektu |
+
+---
+
+## 🎯 Rekomendacje Użycia
+
+### Logo Dla Dokumentacji
+
+**Polsoft logo (1-5)** - Najlepsze do:
+- Nagłówków dokumentacji
+- E-mail podpisów
+- Brandingu ogólnego
+
+**3D logo for 'polsoft.png** - Najlepsze do:
+- Prestiżowych materiałów
+- Prezentacji profesjonalnych
+- Druku wysokiej jakości
+
+### Design Nowoczesny
+
+**Futuristic logo** - Najlepsze do:
+- Strony internetowe
+- Projekty tech
+- Wizualizacje
+
+**Modern logo design** - Najlepsze do:
+- Współczesny branding
+- Aplikacje
+- Materiały cyfrowe
+
+### Style Alternatywne
+
+**Hacker-style logo** - Najlepsze do:
+- Narzędzia CLI
+- Projekty hakerskie
+- Zabawne materiały
+
+---
+
+## 🖼️ Organizacja Grafiki w Projekcie
+
+```
+Batch.Script.Collection/
+├── .docs/
+│   ├── (30 plików graficznych)
+│   ├── Batch Script - Overview.txt
+│   ├── ECHO Command.txt
+│   ├── binary hijacking via .cmd or .bat f.txt
+│   ├── Debugging a batch script becomes im.txt
+│   ├── Its always a good practice to add c.txt
+│   ├── network.txt
+│   ├── Printing can also be controlled fro.txt
+│   ├── This chapter explains the environme.txt
+│   ├── Viewing the List of Running Process.txt
+│   ├── Windows now has an improved library.txt
+│   └── df.pdf, skrypty_batch.pdf
+│
+├── (dokumentacja główna)
+└── (skrypty batch)
+```
+
+---
+
+## 💡 Sugestie Integracji Grafiki
+
+### Dla README
+
+```markdown
+![Polsoft Logo](docs/polsoft%20logo%20(1).png)
+
+# Batch Script Collection
+
+Kompleksowa kolekcja skryptów batch i dokumentacji.
+```
+
+### Dla Dokumentacji
+
+```markdown
+### Professional Design
+
+![Premium Logo](docs/3D%20logo%20for%20polsoft.png)
+
+Profesjonalne narzędzia batch scripting.
+```
+
+### Dla Prezentacji
+
+```markdown
+## Wizualizacja
+
+![Futuristic Design](docs/Futuristic%20logo%20desi.png)
+
+Nowoczesne podejście do automatyzacji.
+```
+
+---
+
+## 📄 Dokumentacja Dodatkowa (.docs)
+
+Katalog `.docs` zawiera również:
+
+### Notatki Tekstowe
+- `Batch Script - Overview.txt` - Przegląd skryptów batch
+- `ECHO Command.txt` - Szczegóły polecenia ECHO
+- `binary hijacking via .cmd or .bat f.txt` - Bezpieczeństwo
+- `Debugging a batch script becomes im.txt` - Debugowanie
+- `Its always a good practice to add c.txt` - Dokumentacja
+- `network.txt` - Polecenia sieciowe
+- `Printing can also be controlled fro.txt` - Drukowanie
+- `This chapter explains the environme.txt` - Środowisko
+- `Viewing the List of Running Process.txt` - Procesy
+- `Windows now has an improved library.txt` - Biblioteki Windows
+
+**Status:** 10 notatek tekstowych
+
+### PDF Documentation
+- `df.pdf` - Dokumentacja
+- `skrypty_batch.pdf` - Guids batch scripts
+
+**Status:** 2 dokumenty PDF
+
+---
+
+## 🎨 Jakość Grafiki
+
+### PNG Files
+- **Format:** PNG (bez straty jakości)
+- **Przezroczystość:** Obsługiwane (некоторые)
+- **Kompatybilność:** Uniwersalna
+- **Rozdzielczość:** Zmienna (HD+)
+
+### JPG Files
+- **Format:** JPG (kompresja)
+- **Przezroczystość:** Nie
+- **Kompatybilność:** Uniwersalna
+- **Rozdzielczość:** Wysoka (Web-ready)
+
+---
+
+## 📈 Statystyki Zasobów
+
+```
+Całkowita liczba plików:     35
+├── Logo i Branding:         6
+├── Professional Designs:    6
+├── AI Generated:           10
+├── Backgrounds:             3
+├── Icons/Elements:          3
+├── Other Graphic:           2
+├── Text Notes:             10
+└── PDF Documentation:       2
+
+Całkowity rozmiar: ~100+ MB (szacunek)
+Format dominujący: PNG
+```
+
+---
+
+## 🔧 Wskazówki Techniczne
+
+### Zmiana Nazw Plików
+
+Jeśli chcesz przenieść grafikę:
+
+```batch
+:: Skopiuj wszystkie PNG do folderu assets
+COPY .docs\*.png assets\ /Y
+
+:: Skopiuj logo specjalnie
+COPY .docs\polsoft*.png assets\logos\ /Y
+```
+
+### Konwersja Formatów (jeśli potrzebna)
+
+```batch
+:: Wymagane: ImageMagick zainstalowany
+magick convert input.png output.jpg
+
+:: Lub użyj online tool:
+:: - CloudConvert
+:: - Convertio
+:: - Online-Convert.com
+```
+
+### Optymalizacja Dla Web
+
+```batch
+:: Zmniejsz rozmiar PNG
+::Wymagane: PNGQuantizer lub ImageMagick
+magick convert input.png -quality 90 output.png
+
+:: Konwertuj na WebP (nowszy format)
+magick convert input.png output.webp
+```
+
+---
+
+## 🚀 Rekomendacje Finalne
+
+1. **Logo Domyślne:** `polsoft logo (3).png` (balans i czytelność)
+2. **Premium Use:** `3D logo for 'polsoft.png` (profesjonalizm)
+3. **Web Use:** `Modern logo design f.png` (responsywne)
+4. **Backup:** AI Generated (alternatywy na wypadek)
+5. **Backgrounds:** Użyj do nagłówków i sekcji
+
+---
+
+## 📝 Status Zasobów
+
+```
+Grafika:          ✅ Kompletna (30 plików)
+Notatki:          ✅ Kompletne (10 plików)
+Dokumentacja PDF: ✅ Dostępna (2 pliki)
+Integracja:       ✅ Możliwa
+Użycie:           ✅ Gotowe
+
+Status: 🎉 GOTOWE DO UŻYTKU
+```
+
+---
+
+**Ostatnia aktualizacja:** Styczeń 2026  
+**Inwentaryzacja:** Pełna  
+**Jakość:** Wysoka
+
