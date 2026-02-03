@@ -1,0 +1,59 @@
+MIT License
+Copyright (c) 2026 Sebastian Januchowski - polsoft.ITS™
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+1. MANDATORY ATTRIBUTION CLAUSE
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software. The original author attribution
+   must remain intact and unmodified in all derivative works, distributions, and
+   publications of this Software.
+
+2. AUTHOR INFORMATION PROTECTION
+   Any person or entity that modifies, extends, or creates derivative works based
+   on this Software is strictly prohibited from:
+   a) Removing, altering, or obscuring the original author's name, copyright notice,
+      or attribution information
+   b) Misrepresenting the authorship or origin of the original work
+   c) Claiming original authorship of code, documentation, or components created
+      by the original author
+
+3. SECONDARY CONTRIBUTORS ACKNOWLEDGMENT
+   Contributors who improve, extend, debug, or enhance this Software through fixes,
+   enhancements, additions, or other modifications are warmly welcomed and encouraged.
+   Such contributors may add their names to a separate CONTRIBUTORS file or section,
+   clearly distinguishing their contributions from the original work. Secondary
+   contributors should be acknowledged as follows:
+   
+   "Additional contributions by: [Contributor Name] - [Brief description of contribution]"
+   
+   This acknowledgment should be placed in a dedicated section separate from the
+   original author attribution, maintaining clear distinction between original
+   authorship and subsequent contributions.
+
+4. CONTRIBUTION GUIDELINES
+   When contributing to this Software:
+   - Maintain the original author attribution in its original form
+   - Add your contribution details in a clearly separate section
+   - Use clear language to distinguish between original work and contributions
+   - Respect the intellectual property and recognition rights of the original author
+   - Document your contributions appropriately for transparency
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+VIOLATION NOTICE:
+Any violation of the author attribution protection clause (Section 2) may result
+in the immediate termination of the rights granted under this license for the
+violating party. The original author reserves the right to pursue appropriate
+legal remedies for violations of the attribution requirements.

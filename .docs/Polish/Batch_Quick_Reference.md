@@ -1,10 +1,10 @@
-# Batch Script - Szybkie Odniesienie Komend
+# 03_Batch_Quick_Reference.md - Szybkie Odniesienie Komend
 
 Polska wersja - Quick Reference Guide dla Batch Scripts i CMD
 
 ---
 
-## Struktury Kontrolne
+## Struktury Kontrolne | Control Structures
 
 ### IF - Instrukcja Warunkowa
 ```batch

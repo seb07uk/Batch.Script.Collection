@@ -1,15 +1,17 @@
-# Batch.Script.Collection - Poradnik Kompletny
+# 01_DOCUMENTATION_GUIDE.md - Poradnik Kompletny
 
 Kompleksowa dokumentacja Batch Scripts w języku polskim | Comprehensive Batch Script Guide in Polish
 
 ---
 
-## 📚 Co Zawiera Ta Kolekcja Dokumentacji?
+## 📚 Co Zawiera Ta Kolekcja Dokumentacji? | What Does This Collection Contain?
 
-Ta kolekcja zawiera **4 główne dokumenty** pokrywające wszystkie aspekty Batch Scripts:
+Ta kolekcja zawiera **ponumerowane dokumenty** pokrywające wszystkie aspekty Batch Scripts:
+This collection contains **numbered documents** covering all aspects of Batch Scripts:
 
-### 1. **Batch_Script_Comprehensive_Guide.md** 📖
+### 02. **Batch_Script_Comprehensive_Guide.md** 📖
 Kompletny przewodnik dla początkujących i zaawansowanych użytkowników.
+Complete guide for beginners and advanced users.
 
 **Zawartość:**
 - Historia Batch Scripts (MS-DOS, Windows NT)
@@ -29,8 +31,9 @@ Kompletny przewodnik dla początkujących i zaawansowanych użytkowników.
 
 ---
 
-### 2. **Batch_Quick_Reference.md** ⚡
+### 03. **Batch_Quick_Reference.md** ⚡
 Szybkie odniesienie wszystkich komend i składni.
+Quick reference for all commands and syntax.
 
 **Zawartość:**
 - Struktury kontrolne
@@ -48,8 +51,9 @@ Szybkie odniesienie wszystkich komend i składni.
 
 ---
 
-### 3. **Batch_Advanced_Guide.md** 🚀
+### 04. **Batch_Advanced_Guide.md** 🚀
 Zaawansowane techniki i najlepsze praktyki.
+Advanced techniques and best practices.
 
 **Zawartość:**
 - Architektura aplikacji
@@ -67,8 +71,9 @@ Zaawansowane techniki i najlepsze praktyki.
 
 ---
 
-### 4. **Batch_Practical_Examples.md** 💡
+### 05. **Batch_Practical_Examples.md** 💡
 Praktyczne przykłady ze zbiorów w kolekcji.
+Practical examples from the collection.
 
 **Zawartość:**
 - ASCII Art Scripts
@@ -89,7 +94,47 @@ Praktyczne przykłady ze zbiorów w kolekcji.
 
 ---
 
-## 🎯 Szybki Start
+### 06. **Batch_Commands_Reference_Extended.md** ⭐
+Rozszerzona referencja poleceń.
+Extended commands reference.
+
+---
+
+### 07. **Graphics_and_Resources.md** 🎨
+Zasoby graficzne i branding.
+Graphics and branding resources.
+
+---
+
+### 08. **PROJECT_SUMMARY.md** 📊
+Podsumowanie projektu.
+Project summary.
+
+---
+
+### 09. **INDEX.md** 🔍
+Indeks i nawigacja.
+Index and navigation.
+
+---
+
+## 📄 Pliki Tekstowe i Pomoc | Text Files and Help
+
+### 10. **Skrypty BAT (.bat) i CMD.txt**
+Wprowadzenie do różnic między .bat a .cmd.
+Introduction to differences between .bat and .cmd.
+
+### 11. **List Help.txt**
+Plik pomocy dla generatora list.
+Help file for list generator.
+
+### 12. **RegEditer v1.0 Help.txt**
+Plik pomocy dla edytora rejestru.
+Help file for registry editor.
+
+---
+
+## 🎯 Szybki Start | Quick Start
 
 ### Dla Całkowicie Początkujących
 
@@ -430,4 +475,3 @@ Jeśli masz pytania, sugestie lub znaleźliśćeś błąd:
 
 **Ostatnia aktualizacja:** 28 Styczeń 2026  
 **Wersja Dokumentacji:** 2.0.0
-

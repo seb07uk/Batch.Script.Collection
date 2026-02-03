@@ -1,4 +1,4 @@
-# Kompleksowy Poradnik Batch Scripts i CMD - Wersja Polska
+# 02_Batch_Script_Comprehensive_Guide.md - Kompleksowy Poradnik
 
 **Data:** Styczeń 2026  
 **Temat:** Kompletny przewodnik po skryptach Batch i CMD dla Windows  
@@ -23,7 +23,7 @@
 
 ---
 
-## Wprowadzenie
+## Wprowadzenie | Introduction
 
 Batch Scripts, znane też jako **pliki wsadowe** lub **skrypty wsadowe**, to pliki tekstowe zawierające sekwencje poleceń wykonywane liniowo przez interpreter wiersza poleceń systemu operacyjnego Windows. Termin "batch" pochodzi z terminologii *batch processing* - przetwarzania wsadowego, co oznacza wykonywanie zadań nieinteraktywnie.
 
@@ -1384,4 +1384,3 @@ Wiedza o Batch scripting jest niezbędna dla każdego administratora systemu Win
 ---
 
 **Koniec Poradnika**
-

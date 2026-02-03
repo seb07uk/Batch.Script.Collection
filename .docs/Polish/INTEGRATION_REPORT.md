@@ -377,4 +377,3 @@ Dokumentacja wykorzystuje:
 **Veni, vidi, scripts integralis! 🚀**
 
 Dokumentacja jest gotowa do użytku. Powodzenia w nauce Batch Scripts!
-
